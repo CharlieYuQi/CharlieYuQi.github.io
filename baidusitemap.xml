@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>yuqi.tk/2017/09/26/git-flow/</loc>
+    <lastmod>2017-09-26T14:26:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Gitflow Workflow</title>
+        <pubTime>2017-09-26T10:01:11.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>yuqi.tk/2017/09/22/mac-quick/</loc>
-    <lastmod>2017-09-22T15:04:53.000Z</lastmod>
+    <lastmod>2017-09-25T05:44:46.000Z</lastmod>
     <data>
         <display>
         <title>mac-quick</title>
@@ -24,16 +44,60 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>HibernateException  Found shared references to a collection</title>
+        <title>opentsdb特殊字符问题</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>Hibernate</tag>
+        <tag>OpenTSDB</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot+Nginx+Https下redirect问题</title>
+        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>IT</tag>
+         
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
+    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义log4j2配置文件地址</title>
+        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>IT</tag>
+         
+        <tag>Log4j</tag>
          
          
            
@@ -70,60 +134,16 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>SpringBoot+Nginx+Https下redirect问题</title>
+        <title>HibernateException  Found shared references to a collection</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>SpringBoot</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
-    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>opentsdb特殊字符问题</title>
-        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>IT</tag>
-         
-        <tag>OpenTSDB</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
-    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义log4j2配置文件地址</title>
-        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>IT</tag>
-         
-        <tag>Log4j</tag>
+        <tag>Hibernate</tag>
          
          
            

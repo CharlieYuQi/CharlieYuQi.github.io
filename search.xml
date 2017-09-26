@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gitflow Workflow]]></title>
+    <url>%2F2017%2F09%2F26%2Fgit-flow%2F</url>
+    <content type="text"><![CDATA[Gitflow Workflow官方完整版见这里 1) feature 从dev branch出feature分支进行需求开发，完成改动后rebase合并回dev2) dev dev累积足够的feature或者发布日期快到，从dev分出release_xx分支3) release release_xx分支经过测试和bugfix之后，合并到master(如果有bug_fix，需要合并到dev)。4) master release合并到master后，使用tag用来记录历史发布的版本。5) hotfix 用户需要基于历史的版本进行bugfix，那么基于对应的tag，branch得到hotfix分支，完成fix，然后合并到master和dev。]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mac-quick]]></title>
     <url>%2F2017%2F09%2F22%2Fmac-quick%2F</url>
-    <content type="text"><![CDATA[mac 快捷键记录文稿在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。移动到开头（行首）：Ctrl + A移动到结尾（行末）：Ctrl + ECommand+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。Control + b/f/n/p ：左右上下移动光标。Control + h/d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。Control + a/e，光标移动到行首行尾。Control + n/p，在许多的应用中，支持上下移动列表选项 ￼￼ ChromeCMD+ &lt;- 返回上一页CMD+ -&gt; 下一页]]></content>
+    <content type="text"><![CDATA[mac 快捷键记录文稿在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。移动到开头（行首）：Ctrl + A移动到结尾（行末）：Ctrl + ECommand+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。Control + b/f/n/p ：左右上下移动光标。Control + h/d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。sdfsdControl + a/e，光标移动到行首行尾。Control + n/p，在许多的应用中，支持上下移动列表选项 ￼￼ ChromeCMD+ &lt;- 返回上一页CMD+ -&gt; 下一页 IDEA]]></content>
       <categories>
         <category>IT</category>
       </categories>
@@ -37,18 +48,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[SpringBoot+Nginx+Https下redirect问题]]></title>
-    <url>%2F2017%2F09%2F18%2F2017-09-18-springboot-nginx-redirect-qa%2F</url>
-    <content type="text"><![CDATA[问题描述项目采用springboot框架，内嵌tomcat容器。前端采用nginx反向代理，当部署了https以后出现的重定向（redirect）的问题。用nginx反向代理tomcat，然后把nginx配置为https访问，并且nginx与tomcat之间配置为普通的http协议，当后台代码定义时redirect，实际是重定向到了http下的地址，导致浏览器上无法访问非https的地址。 解决方案配置nginx由于对tomcat而言收到的是普通的http请求，因此当tomcat里的应用发生转向请求时将转向为http而非https，为此我们需要告诉tomcat已被https代理，方法是增加X-Forwared-Proto和X-Forwarded-Port两个HTTP头信息。12345678910111213server &#123; listen 80; listen 443 ssl; server_name localhost; ssl_certificate server.crt; ssl_certificate_key server.key; location / &#123; proxy_pass http://localhost:8080; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header X-Forwarded-Port $server_port; &#125;&#125; 配置tomcatspringboot配置参见Spring Boot Reference Guide-Use behind a front-end proxy server 基于spring-boot开发时只需在application.properties中进行配置。该配置将指示tomcat从HTTP头信息中去获取协议信息（而非从HttpServletRequest中获取。1234server.tomcat.remote_ip_header=x-forwarded-forserver.tomcat.protocol_header=x-forwarded-protoserver.tomcat.port-header=X-Forwarded-Portserver.use-forward-headers=true 以下是经常被漏掉的配置，本人一开始就忘记配置导致不成功。因为我的nginx的机器IP不在默认允许IP列表里 Tomcat is also configured with a default regular expression that matches internal proxies that are to be trusted. By default, IP addresses in 10/8, 192.168/16, 169.254/16 and 127/8 are trusted. You can customize the valve’s configuration by adding an entry to application.properties, e.g.1server.tomcat.internal-proxies=192\\.168\\.\\d&#123;1,3&#125;\\.\\d&#123;1,3&#125; 此外，虽然我们的tomcat被nginx反向代理了，但仍可访问到其8080端口。为此可在application.properties中增加一行：1server.address=127.0.0.1 这样一来其8080端口就只能被本机访问了，其它机器访问不到。]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[opentsdb特殊字符问题]]></title>
     <url>%2F2017%2F09%2F18%2F2017-09-18-opentsdb-special-character%2F</url>
     <content type="text"><![CDATA[Opentsdb对特殊字符规范如下; The following rules apply to metric and tag values:Strings are case sensitive, i.e. “Sys.Cpu.User” will be stored separately from “sys.cpu.user”Spaces are not allowedOnly the following characters are allowed: a to z, A to Z, 0 to 9, -, _, ., / or Unicode letters (as per the specification) 代码实现如下：123456789101112131415161718192021222324public final class net.opentsdb.core.Tags /** * Ensures that a given string is a valid metric name or tag name/value. * @param what A human readable description of what's being validated. * @param s The string to validate. * @throws IllegalArgumentException if the string isn't valid. */ public static void validateString(final String what, final String s) &#123; if (s == null) &#123; throw new IllegalArgumentException("Invalid " + what + ": null"); &#125; else if ("".equals(s)) &#123; throw new IllegalArgumentException("Invalid " + what + ": empty string"); &#125; final int n = s.length(); for (int i = 0; i &lt; n; i++) &#123; final char c = s.charAt(i); if (!(('a' &lt;= c &amp;&amp; c &lt;= 'z') || ('A' &lt;= c &amp;&amp; c &lt;= 'Z') || ('0' &lt;= c &amp;&amp; c &lt;= '9') || c == '-' || c == '_' || c == '.' || c == '/' || Character.isLetter(c) || isAllowSpecialChars(c))) &#123; throw new IllegalArgumentException("Invalid " + what + " (\"" + s + "\"): illegal character: " + c); &#125; &#125; &#125; 解决办法 从上述代码里可以看到Opentsdb支持自定义允许的特殊字符，isAllowSpecialChars， 12345public final class net.opentsdb.core.TSDB if (config.getString("tsd.core.tag.allow_specialchars") != null) &#123; Tags.setAllowSpecialChars(config.getString("tsd.core.tag.allow_specialchars")); &#125; 所以只需要在opentsdb的配置文件里加上该属性配置就可以，例如 tsd.core.tag.allow_specialchars = : 就将“:”设置为允许的字符了。很奇怪的在于opentsdb的官方文档里没有列出该配置属性 OpenTSDB Configuration 2、写入opentsdb之前进行数据转换。123private static String convert(String in) &#123; return in == null ? null : in.toLowerCase().replaceAll("[^-_a-z0-9.\\u4e00-\\u9fa5]", "_");&#125;]]></content>
@@ -58,6 +57,18 @@
       <tags>
         <tag>IT</tag>
         <tag>OpenTSDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SpringBoot+Nginx+Https下redirect问题]]></title>
+    <url>%2F2017%2F09%2F18%2F2017-09-18-springboot-nginx-redirect-qa%2F</url>
+    <content type="text"><![CDATA[问题描述项目采用springboot框架，内嵌tomcat容器。前端采用nginx反向代理，当部署了https以后出现的重定向（redirect）的问题。用nginx反向代理tomcat，然后把nginx配置为https访问，并且nginx与tomcat之间配置为普通的http协议，当后台代码定义时redirect，实际是重定向到了http下的地址，导致浏览器上无法访问非https的地址。 解决方案配置nginx由于对tomcat而言收到的是普通的http请求，因此当tomcat里的应用发生转向请求时将转向为http而非https，为此我们需要告诉tomcat已被https代理，方法是增加X-Forwared-Proto和X-Forwarded-Port两个HTTP头信息。12345678910111213server &#123; listen 80; listen 443 ssl; server_name localhost; ssl_certificate server.crt; ssl_certificate_key server.key; location / &#123; proxy_pass http://localhost:8080; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header X-Forwarded-Port $server_port; &#125;&#125; 配置tomcatspringboot配置参见Spring Boot Reference Guide-Use behind a front-end proxy server 基于spring-boot开发时只需在application.properties中进行配置。该配置将指示tomcat从HTTP头信息中去获取协议信息（而非从HttpServletRequest中获取。1234server.tomcat.remote_ip_header=x-forwarded-forserver.tomcat.protocol_header=x-forwarded-protoserver.tomcat.port-header=X-Forwarded-Portserver.use-forward-headers=true 以下是经常被漏掉的配置，本人一开始就忘记配置导致不成功。因为我的nginx的机器IP不在默认允许IP列表里 Tomcat is also configured with a default regular expression that matches internal proxies that are to be trusted. By default, IP addresses in 10/8, 192.168/16, 169.254/16 and 127/8 are trusted. You can customize the valve’s configuration by adding an entry to application.properties, e.g.1server.tomcat.internal-proxies=192\\.168\\.\\d&#123;1,3&#125;\\.\\d&#123;1,3&#125; 此外，虽然我们的tomcat被nginx反向代理了，但仍可访问到其8080端口。为此可在application.properties中增加一行：1server.address=127.0.0.1 这样一来其8080端口就只能被本机访问了，其它机器访问不到。]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+        <tag>SpringBoot</tag>
       </tags>
   </entry>
   <entry>

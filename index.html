@@ -293,6 +293,317 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="yuqi.tk/2017/11/14/zshrc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/e5aac86bgy1fjnsnfm4g0j20go0hsmy2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知周博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/zshrc/" itemprop="url">zshrc</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T13:35:28+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/14/zshrc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/14/zshrc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="zshrc-文件备份"><a href="#zshrc-文件备份" class="headerlink" title="zshrc  文件备份"></a>zshrc  文件备份</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"># Correctly display UTF-8 with combining characters.</div><div class="line">if [ &quot;$TERM_PROGRAM&quot; = &quot;Apple_Terminal&quot; ]; then</div><div class="line">	setopt combiningchars</div><div class="line">fi</div><div class="line">[[ -s ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh ]] &amp;&amp; . ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh</div><div class="line">[[ -s ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &amp;&amp; . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</div><div class="line">disable log</div><div class="line"># Generic</div><div class="line">alias ls=&apos;ls -G&apos;</div><div class="line">alias su=&apos;su -&apos;</div><div class="line">alias ll=&apos;ls -l&apos;</div><div class="line">alias la=&apos;ls -a&apos;</div><div class="line">alias l=&apos;ls -lF&apos;</div><div class="line">alias df=&apos;df -h&apos;</div><div class="line"></div><div class="line"># Git</div><div class="line">alias ga=&apos;git add&apos;</div><div class="line">alias gb=&apos;git branch&apos;</div><div class="line">alias gba=&apos;git branch -a&apos;</div><div class="line">alias gbd=&apos;git branch -d&apos;</div><div class="line">alias gcam=&apos;git commit -a -m&apos;</div><div class="line">alias gcb=&apos;git checkout -b&apos;</div><div class="line">alias gco=&apos;git checkout&apos;</div><div class="line">alias gcp=&apos;git cherry-pick&apos;</div><div class="line">alias gd=&apos;git diff&apos;</div><div class="line">alias gfo=&apos;git fetch origin&apos;</div><div class="line">alias ggpush=&apos;git push origin $(git_current_branch)&apos;</div><div class="line">alias ggsup=&apos;git branch --set-upstream-to=origin/$(git_current_branch)&apos;</div><div class="line">alias glgp=&apos;git log --stat -p&apos;</div><div class="line">alias gm=&apos;git merge&apos;</div><div class="line">alias gpush=&apos;git push&apos;</div><div class="line">alias gst=&apos;git status&apos;</div><div class="line">alias gsta=&apos;git stash save&apos;</div><div class="line">alias gstp=&apos;git stash pop&apos;</div><div class="line">alias gpull=&apos;git pull&apos;</div><div class="line"></div><div class="line"># mysql</div><div class="line">alias mysql=&apos;/usr/local/mysql/bin/mysql&apos;</div><div class="line">alias mysqladmin=&apos;/usr/local/mysql/bin/mysqladmin&apos;</div><div class="line"></div><div class="line"># maven</div><div class="line">alias mi=&apos;mvn clean install -Dmaven.test.skip=true&apos;</div><div class="line">alias mp=&apos;mvn clean package -Dmaven.test.skip=true&apos;</div><div class="line">alias md=&apos;mvn clean package deploy -Dmaven.test.skip=true&apos;</div><div class="line"></div><div class="line">alias vim=&apos;sudo vim&apos;</div><div class="line"></div><div class="line"></div><div class="line">[ -r &quot;/etc/zshrc_$TERM_PROGRAM&quot; ] &amp;&amp; . &quot;/etc/zshrc_$TERM_PROGRAM&quot;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="yuqi.tk/2017/09/27/mac-app-recommend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/e5aac86bgy1fjnsnfm4g0j20go0hsmy2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知周博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/mac-app-recommend/" itemprop="url">MAC下提高工作效率的软件推荐</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T17:27:33+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/27/mac-app-recommend/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/27/mac-app-recommend/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h1 id="Gas-Mask"><a href="#Gas-Mask" class="headerlink" title="Gas Mask"></a>Gas Mask</h1><p>可以很方便切换 hosts 文件的工具，十分好用。</p>
+<ul>
+<li>效率提高：不需要打开终端打开 hosts 了，点两下就好了，3s 内完成之前至少需要40s 完成的事情，而且还不会出错</li>
+<li>相关地址：<a href="https://github.com/2ndalpha/gasmask" target="_blank" rel="external">2ndalpha/gasmask · GitHub</a><br><img src="https://pic2.zhimg.com/50/087958b74299020dcc63c4b020281625_hd.jpg" alt="titie"></li>
+</ul>
+<h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1><h1 id="Copia"><a href="#Copia" class="headerlink" title="Copia"></a>Copia</h1><p>是一个复制粘贴管理工具，可以记录复制历史，然后粘贴任意你曾经复制过的内容。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="yuqi.tk/2017/09/26/git-flow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -713,168 +1024,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余琪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/e5aac86bgy1fjnsnfm4g0j20go0hsmy2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="知周博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/18/2017-09-18-Netty_channelpool/" itemprop="url">Netty连接池ChannelPool,FixedChannelPool应用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T00:00:00+08:00">
-                2017-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/18/2017-09-18-Netty_channelpool/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/18/2017-09-18-Netty_channelpool/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>Netty is an asynchronous event-driven network application framework<br>for rapid development of maintainable high performance protocol servers &amp; clients.</p>
-</blockquote>
-<p>如今越来越多的应用采用Netty作为服务端高性能异步通讯框架，对于客户端而言，大部分需求只需和服务端建立一条链接收发消息。但如果客户端需要和服务端建立多条链接的例子就比较少了。<br>最简单的实现就是一个for循环，建立多个NioEventLoopGroup与服务端交互。另外还有如果要和多个服务端进行交互又该如何解决。</p>
-<p>其实Netty从4.0版本就提供了连接池ChannelPool，可以解决与多个服务端交互以及与单个服务端建立连接池的问题。</p>
-<p><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fi3zjslhvaj20d30210sm.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/18/2017-09-18-Netty_channelpool/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1390,6 +1539,168 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/e5aac86bgy1fjnsnfm4g0j20go0hsmy2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知周博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/18/2017-09-18-Netty_channelpool/" itemprop="url">Netty连接池ChannelPool,FixedChannelPool应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T00:00:00+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/18/2017-09-18-Netty_channelpool/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/18/2017-09-18-Netty_channelpool/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
+<p>Netty is an asynchronous event-driven network application framework<br>for rapid development of maintainable high performance protocol servers &amp; clients.</p>
+</blockquote>
+<p>如今越来越多的应用采用Netty作为服务端高性能异步通讯框架，对于客户端而言，大部分需求只需和服务端建立一条链接收发消息。但如果客户端需要和服务端建立多条链接的例子就比较少了。<br>最简单的实现就是一个for循环，建立多个NioEventLoopGroup与服务端交互。另外还有如果要和多个服务端进行交互又该如何解决。</p>
+<p>其实Netty从4.0版本就提供了连接池ChannelPool，可以解决与多个服务端交互以及与单个服务端建立连接池的问题。</p>
+<p><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fi3zjslhvaj20d30210sm.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/18/2017-09-18-Netty_channelpool/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1439,7 +1750,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

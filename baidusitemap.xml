@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>yuqi.tk/2017/11/14/zshrc/</loc>
+    <lastmod>2017-11-14T05:38:08.074Z</lastmod>
+    <data>
+        <display>
+        <title>zshrc</title>
+        <pubTime>2017-11-14T05:35:28.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/27/mac-app-recommend/</loc>
+    <lastmod>2017-09-27T09:41:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>MAC下提高工作效率的软件推荐</title>
+        <pubTime>2017-09-27T09:27:33.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>yuqi.tk/2017/09/26/git-flow/</loc>
     <lastmod>2017-09-26T14:26:18.000Z</lastmod>
     <data>
@@ -44,16 +84,16 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>opentsdb特殊字符问题</title>
+        <title>HibernateException  Found shared references to a collection</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>OpenTSDB</tag>
+        <tag>Hibernate</tag>
          
          
            
@@ -76,6 +116,28 @@
         <tag>IT</tag>
          
         <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>opentsdb特殊字符问题</title>
+        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>IT</tag>
+         
+        <tag>OpenTSDB</tag>
          
          
            
@@ -122,28 +184,6 @@
         <tag>Netty</tag>
          
         <tag>ChannelPool</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
-    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>HibernateException  Found shared references to a collection</title>
-        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>IT</tag>
-         
-        <tag>Hibernate</tag>
          
          
            

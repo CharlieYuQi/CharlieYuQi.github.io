@@ -5,11 +5,31 @@
     
   <url>
     <loc>yuqi.tk/2017/11/14/zshrc/</loc>
-    <lastmod>2017-11-14T05:38:08.074Z</lastmod>
+    <lastmod>2017-11-14T08:59:36.784Z</lastmod>
     <data>
         <display>
         <title>zshrc</title>
         <pubTime>2017-11-14T05:35:28.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/22/mac-quick/</loc>
+    <lastmod>2017-11-14T05:44:37.600Z</lastmod>
+    <data>
+        <display>
+        <title>mac-quick</title>
+        <pubTime>2017-09-22T14:54:15.000Z</pubTime>
         
         <tag>mac</tag>
          
@@ -64,58 +84,16 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/22/mac-quick/</loc>
-    <lastmod>2017-09-25T05:44:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>mac-quick</title>
-        <pubTime>2017-09-22T14:54:15.000Z</pubTime>
-        
-        <tag>mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>HibernateException  Found shared references to a collection</title>
+        <title>自定义log4j2配置文件地址</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>Hibernate</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
-    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>SpringBoot+Nginx+Https下redirect问题</title>
-        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>IT</tag>
-         
-        <tag>SpringBoot</tag>
+        <tag>Log4j</tag>
          
          
            
@@ -150,28 +128,6 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
-    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义log4j2配置文件地址</title>
-        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>IT</tag>
-         
-        <tag>Log4j</tag>
-         
-         
-           
-             
-              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
@@ -184,6 +140,50 @@
         <tag>Netty</tag>
          
         <tag>ChannelPool</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot+Nginx+Https下redirect问题</title>
+        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>IT</tag>
+         
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="IT" url="yuqi.tk/categories/IT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
+    <lastmod>2017-09-21T11:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>HibernateException  Found shared references to a collection</title>
+        <pubTime>2017-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>IT</tag>
+         
+        <tag>Hibernate</tag>
          
          
            

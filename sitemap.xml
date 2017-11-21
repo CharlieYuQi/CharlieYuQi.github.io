@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>yuqi.tk/2017/11/21/copyless/</loc>
+    
+    <lastmod>2017-11-21T09:59:43.779Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>yuqi.tk/2017/11/14/zshrc/</loc>
     
     <lastmod>2017-11-14T08:59:36.784Z</lastmod>
@@ -37,14 +44,14 @@
   </url>
   
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
     
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
     
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     
@@ -58,7 +65,7 @@
   </url>
   
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/</loc>
     
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>yuqi.tk/about/index.html</loc>
+    <loc>yuqi.tk/categories/index.html</loc>
     
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>yuqi.tk/categories/index.html</loc>
+    <loc>yuqi.tk/about/index.html</loc>
     
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     

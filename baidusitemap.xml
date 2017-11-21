@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>yuqi.tk/2017/11/21/copyless/</loc>
+    <lastmod>2017-11-21T09:59:43.779Z</lastmod>
+    <data>
+        <display>
+        <title>copyless</title>
+        <pubTime>2017-11-21T09:57:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>yuqi.tk/2017/11/14/zshrc/</loc>
     <lastmod>2017-11-14T08:59:36.784Z</lastmod>
     <data>
@@ -106,16 +121,16 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>opentsdb特殊字符问题</title>
+        <title>HibernateException  Found shared references to a collection</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>OpenTSDB</tag>
+        <tag>Hibernate</tag>
          
          
            
@@ -128,18 +143,16 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>Netty连接池ChannelPool,FixedChannelPool应用</title>
+        <title>opentsdb特殊字符问题</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>Netty</tag>
-         
-        <tag>ChannelPool</tag>
+        <tag>OpenTSDB</tag>
          
          
            
@@ -174,16 +187,18 @@
 
     
   <url>
-    <loc>yuqi.tk/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</loc>
+    <loc>yuqi.tk/2017/09/18/2017-09-18-Netty_channelpool/</loc>
     <lastmod>2017-09-21T11:30:10.000Z</lastmod>
     <data>
         <display>
-        <title>HibernateException  Found shared references to a collection</title>
+        <title>Netty连接池ChannelPool,FixedChannelPool应用</title>
         <pubTime>2017-09-17T16:00:00.000Z</pubTime>
         
         <tag>IT</tag>
          
-        <tag>Hibernate</tag>
+        <tag>Netty</tag>
+         
+        <tag>ChannelPool</tag>
          
          
            

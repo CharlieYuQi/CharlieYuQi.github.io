@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mac," />
 
 
 
@@ -69,14 +69,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="yuqi.tk/categories/index.html">
+<meta name="description" content="直接操作home 文件夹报错:Operation not supported解决办法：执行：1sudo vim /etc/auto_master 注释掉  #/home之后执行：1sudo automount">
+<meta name="keywords" content="mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MAC 创建 &#x2F;home 文件夹">
+<meta property="og:url" content="yuqi.tk/2018/03/23/MAC-create-home-md/index.html">
 <meta property="og:site_name" content="知周博客">
+<meta property="og:description" content="直接操作home 文件夹报错:Operation not supported解决办法：执行：1sudo vim /etc/auto_master 注释掉  #/home之后执行：1sudo automount">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-21T11:30:10.000Z">
+<meta property="og:updated_time" content="2018-03-23T11:29:23.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="MAC 创建 &#x2F;home 文件夹">
+<meta name="twitter:description" content="直接操作home 文件夹报错:Operation not supported解决办法：执行：1sudo vim /etc/auto_master 注释掉  #/home之后执行：1sudo automount">
 
 
 
@@ -106,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="yuqi.tk/categories/"/>
+  <link rel="canonical" href="yuqi.tk/2018/03/23/MAC-create-home-md/"/>
 
 
 
 
 
-  <title>categories | 知周博客</title>
+  <title>MAC 创建 /home 文件夹 | 知周博客</title>
   
 
 
@@ -281,40 +285,201 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="yuqi.tk/2018/03/23/MAC-create-home-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/e5aac86bgy1fjnsnfm4g0j20go0hsmy2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知周博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">10</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">MAC 创建 /home 文件夹</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T19:27:50+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/23/MAC-create-home-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/23/MAC-create-home-md/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/auto_master</div></pre></td></tr></table></figure></p>
+<p>注释掉  #/home<br>之后执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo automount</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    余琪
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="yuqi.tk/2018/03/23/MAC-create-home-md/" title="MAC 创建 /home 文件夹">yuqi.tk/2018/03/23/MAC-create-home-md/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mac/" rel="tag"># mac</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/24/youdaoNote/" rel="next" title="youdaoNote">
+                <i class="fa fa-chevron-left"></i> youdaoNote
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -645,9 +810,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'yuqi.tk/categories/index.html';
-          this.page.identifier = 'categories/index.html';
-          this.page.title = 'categories';
+          this.page.url = 'yuqi.tk/2018/03/23/MAC-create-home-md/';
+          this.page.identifier = '2018/03/23/MAC-create-home-md/';
+          this.page.title = 'MAC 创建 /home 文件夹';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://yuqi-tk.disqus.com/embed.js';

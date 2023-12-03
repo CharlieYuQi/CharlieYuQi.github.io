@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -210,14 +210,14 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
+    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
     <lastmod>2023-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
+    <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
     <lastmod>2023-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

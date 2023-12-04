@@ -235,40 +235,11 @@
   <entry>
     <title>mac-quick</title>
     <url>/2017/09/22/mac-quick/</url>
-    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><h1 id="在Mac-OS-X下执行shell命令时难免需要更改靠近行首的部分。移动到开头（行首）：Ctrl-A移动到结尾（行末）：Ctrl-ECommand-Shift-可以显示隐藏文件、文件夹，再按一次，恢复隐藏；finder下使用Command-Shift-G-可以前往任何文件夹，包括隐藏文件夹。Control-b-f-n-p-：左右上下移动光标。-HEAD"><a href="#在Mac-OS-X下执行shell命令时难免需要更改靠近行首的部分。移动到开头（行首）：Ctrl-A移动到结尾（行末）：Ctrl-ECommand-Shift-可以显示隐藏文件、文件夹，再按一次，恢复隐藏；finder下使用Command-Shift-G-可以前往任何文件夹，包括隐藏文件夹。Control-b-f-n-p-：左右上下移动光标。-HEAD" class="headerlink" title="在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。移动到开头（行首）：Ctrl + A移动到结尾（行末）：Ctrl + ECommand+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEADControl + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。sdfsd"></a>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。sdfsd</h1><p>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>715a5aebab9edc51d068476a9bcbad63f55b13c8<br>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
+<p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
 <p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页</p>
 <h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>715a5aebab9edc51d068476a9bcbad63f55b13c8</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 ]]></content>
       <categories>
         <category>IT</category>
@@ -298,6 +269,12 @@
       </tags>
   </entry>
   <entry>
+    <title>youdaoNote</title>
+    <url>/2017/11/24/youdaoNote/</url>
+    <content><![CDATA[<p>在书签栏添加收藏到有道云笔记链接，不需要装插件。主页进去找到找页面的入口<br><a href="http://note.youdao.com/web-clipper.html?entry=index&auto=1">http://note.youdao.com/web-clipper.html?entry=index&amp;auto=1</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>useful third package.md</title>
     <url>/2019/02/14/useful-third-package-md/</url>
     <content><![CDATA[<h1 id="1-JaVers"><a href="#1-JaVers" class="headerlink" title="1. JaVers"></a>1. JaVers</h1><p>  Object auditing and diff framework for Java;JaVers是一个轻量级的对象比较&#x2F;审计框架,非常易于使用。支持持久化，支持springboot。</p>
@@ -317,12 +294,6 @@
         <tag>IT</tag>
         <tag>java</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>youdaoNote</title>
-    <url>/2017/11/24/youdaoNote/</url>
-    <content><![CDATA[<p>在书签栏添加收藏到有道云笔记链接，不需要装插件。主页进去找到找页面的入口<br><a href="http://note.youdao.com/web-clipper.html?entry=index&auto=1">http://note.youdao.com/web-clipper.html?entry=index&amp;auto=1</a></p>
-]]></content>
   </entry>
   <entry>
     <title>zshrc</title>

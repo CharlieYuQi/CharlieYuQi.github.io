@@ -326,7 +326,7 @@
 <h2 id="建仓策略"><a href="#建仓策略" class="headerlink" title="建仓策略"></a>建仓策略</h2><ol>
 <li>筛选满足条件的按PB降序的前10支可转债</li>
 <li>总资金的50%平均投到这10支可转债</li>
-<li>立即买入, 满足前面的筛选条件就任务满足建仓条件</li>
+<li>立即买入, 满足前面的筛选条件就认为满足建仓条件</li>
 </ol>
 <h2 id="补仓策略"><a href="#补仓策略" class="headerlink" title="补仓策略"></a>补仓策略</h2><p><img src="/../images/Margin.PNG" alt="Alt text"></p>
 <h2 id="卖出策略"><a href="#卖出策略" class="headerlink" title="卖出策略"></a>卖出策略</h2><p>提前设置价格到140就自动卖出</p>

@@ -65,33 +65,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot+Nginx+Https下redirect问题</title>
-    <url>/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</url>
-    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>项目采用springboot框架，内嵌tomcat容器。前端采用nginx反向代理，当部署了https以后出现的重定向（redirect）的问题。用nginx反向代理tomcat，然后把nginx配置为https访问，并且nginx与tomcat之间配置为普通的http协议，当后台代码定义时redirect，实际是重定向到了http下的地址，导致浏览器上无法访问非https的地址。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h2><p>由于对tomcat而言收到的是普通的http请求，因此当tomcat里的应用发生转向请求时将转向为http而非https，为此我们需要告诉tomcat已被https代理，方法是增加X-Forwared-Proto和X-Forwarded-Port两个HTTP头信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    ssl_certificate server.crt;</span><br><span class="line">    ssl_certificate_key server.key;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://localhost:8080;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">        proxy_set_header X-Forwarded-Port $server_port;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="配置tomcat"><a href="#配置tomcat" class="headerlink" title="配置tomcat"></a>配置tomcat</h2><p>springboot配置参见<a href="https://docs.spring.io/spring-boot/docs/2.0.0.M3/reference/htmlsingle/#howto-use-tomcat-behind-a-proxy-server">Spring Boot Reference Guide-Use behind a front-end proxy server </a></p>
-<p>基于spring-boot开发时只需在application.properties中进行配置。<br>该配置将指示tomcat从HTTP头信息中去获取协议信息（而非从HttpServletRequest中获取。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.tomcat.remote_ip_header=x-forwarded-for</span><br><span class="line">server.tomcat.protocol_header=x-forwarded-proto</span><br><span class="line">server.tomcat.port-header=X-Forwarded-Port</span><br><span class="line">server.use-forward-headers=true</span><br></pre></td></tr></table></figure>
-<p>以下是经常被漏掉的配置，本人一开始就忘记配置导致不成功。因为我的nginx的机器IP不在默认允许IP列表里</p>
-<blockquote>
-<p>Tomcat is also configured with a default regular expression that matches internal proxies that are to be trusted. By default, IP addresses in 10&#x2F;8, 192.168&#x2F;16, 169.254&#x2F;16 and 127&#x2F;8 are trusted. You can customize the valve’s configuration by adding an entry to application.properties, e.g.</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.tomcat.internal-proxies=192\\.168\\.\\d&#123;1,3&#125;\\.\\d&#123;1,3&#125;</span><br></pre></td></tr></table></figure>
-<p>此外，虽然我们的tomcat被nginx反向代理了，但仍可访问到其8080端口。为此可在application.properties中增加一行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.address=127.0.0.1</span><br></pre></td></tr></table></figure>
-<p>这样一来其8080端口就只能被本机访问了，其它机器访问不到。</p>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>opentsdb特殊字符问题</title>
     <url>/2017/09/18/2017-09-18-opentsdb-special-character/</url>
     <content><![CDATA[<h1 id="Opentsdb对特殊字符规范如下"><a href="#Opentsdb对特殊字符规范如下" class="headerlink" title="Opentsdb对特殊字符规范如下;"></a>Opentsdb对特殊字符规范如下;</h1><blockquote>
@@ -118,19 +91,30 @@
       </tags>
   </entry>
   <entry>
-    <title>MAC 创建 /home 文件夹</title>
-    <url>/2018/03/23/MAC-create-home-md/</url>
-    <content><![CDATA[<p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/auto_master</span><br></pre></td></tr></table></figure>
-
-<p>注释掉  #&#x2F;home<br>之后执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo automount</span><br></pre></td></tr></table></figure>
+    <title>SpringBoot+Nginx+Https下redirect问题</title>
+    <url>/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</url>
+    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>项目采用springboot框架，内嵌tomcat容器。前端采用nginx反向代理，当部署了https以后出现的重定向（redirect）的问题。用nginx反向代理tomcat，然后把nginx配置为https访问，并且nginx与tomcat之间配置为普通的http协议，当后台代码定义时redirect，实际是重定向到了http下的地址，导致浏览器上无法访问非https的地址。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h2><p>由于对tomcat而言收到的是普通的http请求，因此当tomcat里的应用发生转向请求时将转向为http而非https，为此我们需要告诉tomcat已被https代理，方法是增加X-Forwared-Proto和X-Forwarded-Port两个HTTP头信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    ssl_certificate server.crt;</span><br><span class="line">    ssl_certificate_key server.key;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://localhost:8080;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">        proxy_set_header X-Forwarded-Port $server_port;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="配置tomcat"><a href="#配置tomcat" class="headerlink" title="配置tomcat"></a>配置tomcat</h2><p>springboot配置参见<a href="https://docs.spring.io/spring-boot/docs/2.0.0.M3/reference/htmlsingle/#howto-use-tomcat-behind-a-proxy-server">Spring Boot Reference Guide-Use behind a front-end proxy server </a></p>
+<p>基于spring-boot开发时只需在application.properties中进行配置。<br>该配置将指示tomcat从HTTP头信息中去获取协议信息（而非从HttpServletRequest中获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.tomcat.remote_ip_header=x-forwarded-for</span><br><span class="line">server.tomcat.protocol_header=x-forwarded-proto</span><br><span class="line">server.tomcat.port-header=X-Forwarded-Port</span><br><span class="line">server.use-forward-headers=true</span><br></pre></td></tr></table></figure>
+<p>以下是经常被漏掉的配置，本人一开始就忘记配置导致不成功。因为我的nginx的机器IP不在默认允许IP列表里</p>
+<blockquote>
+<p>Tomcat is also configured with a default regular expression that matches internal proxies that are to be trusted. By default, IP addresses in 10&#x2F;8, 192.168&#x2F;16, 169.254&#x2F;16 and 127&#x2F;8 are trusted. You can customize the valve’s configuration by adding an entry to application.properties, e.g.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.tomcat.internal-proxies=192\\.168\\.\\d&#123;1,3&#125;\\.\\d&#123;1,3&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，虽然我们的tomcat被nginx反向代理了，但仍可访问到其8080端口。为此可在application.properties中增加一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.address=127.0.0.1</span><br></pre></td></tr></table></figure>
+<p>这样一来其8080端口就只能被本机访问了，其它机器访问不到。</p>
 ]]></content>
       <categories>
         <category>IT</category>
       </categories>
       <tags>
-        <tag>mac</tag>
+        <tag>IT</tag>
+        <tag>SpringBoot</tag>
       </tags>
   </entry>
   <entry>
@@ -163,29 +147,19 @@
       </tags>
   </entry>
   <entry>
-    <title>copyless</title>
-    <url>/2017/11/21/copyless/</url>
-    <content><![CDATA[<p>Copyless 2 更新后直接粘贴的功能用不了了，即使装了copyless helper插件，还是不能使用该功能。<br>暂时使用jumpcut代替，jump简洁一些，功能要少，不支持多媒体文件复制等等</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Gitflow Workflow</title>
-    <url>/2017/09/26/git-flow/</url>
-    <content><![CDATA[<h1 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h1><p>官方完整版见<a href="https://www.atlassian.com/git/tutorials/comparing-workflows">这里</a></p>
-<p><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjx4p2gf78j20u80lm40o.jpg"></p>
-<ol>
-<li>feature 从dev branch出feature分支进行需求开发，完成改动后rebase合并回dev</li>
-<li>dev dev累积足够的feature或者发布日期快到，从dev分出release_xx分支</li>
-<li>release release_xx分支经过测试和bugfix之后，合并到master(如果有bug_fix，需要合并到dev)。</li>
-<li>master release合并到master后，使用tag用来记录历史发布的版本。</li>
-<li>hotfix 用户需要基于历史的版本进行bugfix，那么基于对应的tag，branch得到hotfix分支，完成fix，然后合并到master和dev。</li>
-</ol>
+    <title>MAC 创建 /home 文件夹</title>
+    <url>/2018/03/23/MAC-create-home-md/</url>
+    <content><![CDATA[<p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/auto_master</span><br></pre></td></tr></table></figure>
+
+<p>注释掉  #&#x2F;home<br>之后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo automount</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>IT</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>mac</tag>
       </tags>
   </entry>
   <entry>
@@ -216,6 +190,32 @@
 ]]></content>
   </entry>
   <entry>
+    <title>copyless</title>
+    <url>/2017/11/21/copyless/</url>
+    <content><![CDATA[<p>Copyless 2 更新后直接粘贴的功能用不了了，即使装了copyless helper插件，还是不能使用该功能。<br>暂时使用jumpcut代替，jump简洁一些，功能要少，不支持多媒体文件复制等等</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Gitflow Workflow</title>
+    <url>/2017/09/26/git-flow/</url>
+    <content><![CDATA[<h1 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h1><p>官方完整版见<a href="https://www.atlassian.com/git/tutorials/comparing-workflows">这里</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjx4p2gf78j20u80lm40o.jpg"></p>
+<ol>
+<li>feature 从dev branch出feature分支进行需求开发，完成改动后rebase合并回dev</li>
+<li>dev dev累积足够的feature或者发布日期快到，从dev分出release_xx分支</li>
+<li>release release_xx分支经过测试和bugfix之后，合并到master(如果有bug_fix，需要合并到dev)。</li>
+<li>master release合并到master后，使用tag用来记录历史发布的版本。</li>
+<li>hotfix 用户需要基于历史的版本进行bugfix，那么基于对应的tag，branch得到hotfix分支，完成fix，然后合并到master和dev。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MAC下提高工作效率的软件推荐</title>
     <url>/2017/09/27/mac-app-recommend/</url>
     <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h1 id="Gas-Mask"><a href="#Gas-Mask" class="headerlink" title="Gas Mask"></a>Gas Mask</h1><p>可以很方便切换 hosts 文件的工具，十分好用。</p>
@@ -230,6 +230,27 @@
       </categories>
       <tags>
         <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>useful third package.md</title>
+    <url>/2019/02/14/useful-third-package-md/</url>
+    <content><![CDATA[<h1 id="1-JaVers"><a href="#1-JaVers" class="headerlink" title="1. JaVers"></a>1. JaVers</h1><p>  Object auditing and diff framework for Java;JaVers是一个轻量级的对象比较&#x2F;审计框架,非常易于使用。支持持久化，支持springboot。</p>
+<blockquote>
+<p>如果你需要实时比较生产环境的处理结果和备份环境的处理结果，或是在新系统中重放生产环境的请求，或者像代码一样对对象进行版本管理，那么JaVers就可以成为你的好朋友。它不仅可以比较对象，也可以将比较结果存储在数据库中以便审计。审计是这样的一种需求：作为用户，我希望知道谁改变了状态;是什么时候改变的，以及原先的状态是什么。<br><a href="https://javers.org/">官网地址</a><br>  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javers-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="2-MapStruct"><a href="#2-MapStruct" class="headerlink" title="2. MapStruct"></a>2. MapStruct</h1><p>MapStruct是一种类型安全的bean映射类生成java注释处理器。</p>
+<blockquote>
+<p>我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。<br><a href="http://mapstruct.org/">官网地址</a></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-jdk8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -259,27 +280,6 @@
 <p>Lombok 1.18.16 introduces a breaking change (changelog). The additional annotation processor lombok-mapstruct-binding (Maven) must be added otherwise MapStruct stops working with Lombok. This resolves the compilation issues of Lombok and MapStruct modules.</p>
 </blockquote>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">org.mapstruct.version</span>&gt;</span>1.5.5.Final<span class="tag">&lt;/<span class="name">org.mapstruct.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">org.projectlombok.version</span>&gt;</span>1.18.16<span class="tag">&lt;/<span class="name">org.projectlombok.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.mapstruct.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- lombok dependency should not end up on classpath --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.projectlombok.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">annotationProcessorPaths</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.mapstruct.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.projectlombok.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">&lt;!-- additional annotation processor required as of Lombok 1.18.16 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok-mapstruct-binding<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">annotationProcessorPaths</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>useful third package.md</title>
-    <url>/2019/02/14/useful-third-package-md/</url>
-    <content><![CDATA[<h1 id="1-JaVers"><a href="#1-JaVers" class="headerlink" title="1. JaVers"></a>1. JaVers</h1><p>  Object auditing and diff framework for Java;JaVers是一个轻量级的对象比较&#x2F;审计框架,非常易于使用。支持持久化，支持springboot。</p>
-<blockquote>
-<p>如果你需要实时比较生产环境的处理结果和备份环境的处理结果，或是在新系统中重放生产环境的请求，或者像代码一样对对象进行版本管理，那么JaVers就可以成为你的好朋友。它不仅可以比较对象，也可以将比较结果存储在数据库中以便审计。审计是这样的一种需求：作为用户，我希望知道谁改变了状态;是什么时候改变的，以及原先的状态是什么。<br><a href="https://javers.org/">官网地址</a><br>  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javers-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="2-MapStruct"><a href="#2-MapStruct" class="headerlink" title="2. MapStruct"></a>2. MapStruct</h1><p>MapStruct是一种类型安全的bean映射类生成java注释处理器。</p>
-<blockquote>
-<p>我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。<br><a href="http://mapstruct.org/">官网地址</a></p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-jdk8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>IT</category>
@@ -361,7 +361,16 @@
 <td>中证500ETF</td>
 <td></td>
 </tr>
+<tr>
+<td>上证50ETF</td>
+<td></td>
+</tr>
+<tr>
+<td>科创50ETF</td>
+<td></td>
+</tr>
 </tbody></table>
+<p>如果选择上证50，则PE要小于10;不过上证50成长性较差，不建议选择<br>如果选择两支ETF，则大小盘各一支</p>
 <h2 id="定投策略"><a href="#定投策略" class="headerlink" title="定投策略"></a>定投策略</h2><ol>
 <li>每月1日开盘定投</li>
 <li>长期定投，按3~5年规划资金投入</li>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yuqi.tk/2023/12/30/%E5%9F%BA%E9%87%91%E5%AE%9A%E6%8A%95/</loc>
+    
+    <lastmod>2023-12-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yuqi.tk/2023/12/23/%E5%8F%AF%E8%BD%AC%E5%80%BA/</loc>
     
     <lastmod>2023-12-30</lastmod>
@@ -146,7 +155,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -155,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-18-opentsdb-special-character/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -173,7 +182,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2018/05/02/activate-idea-md/</loc>
+    <loc>http://yuqi.tk/2018/03/23/MAC-create-home-md/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -182,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2018/03/23/MAC-create-home-md/</loc>
+    <loc>http://yuqi.tk/2018/05/02/activate-idea-md/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -237,14 +246,14 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
+    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
     <lastmod>2023-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
+    <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
     <lastmod>2023-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -258,14 +267,14 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/Git/</loc>
+    <loc>http://yuqi.tk/tags/mac/</loc>
     <lastmod>2023-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/mac/</loc>
+    <loc>http://yuqi.tk/tags/Git/</loc>
     <lastmod>2023-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -296,6 +296,18 @@
 ]]></content>
   </entry>
   <entry>
+    <title>zshrc</title>
+    <url>/2017/11/14/zshrc/</url>
+    <content><![CDATA[<h1 id="zshrc-文件备份"><a href="#zshrc-文件备份" class="headerlink" title="zshrc  文件备份"></a>zshrc  文件备份</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Correctly display UTF-8 with combining characters.</span><br><span class="line">if [ &quot;$TERM_PROGRAM&quot; = &quot;Apple_Terminal&quot; ]; then</span><br><span class="line">	setopt combiningchars</span><br><span class="line">fi</span><br><span class="line">[[ -s ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh ]] &amp;&amp; . ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh</span><br><span class="line">[[ -s ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &amp;&amp; . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line">disable log</span><br><span class="line"># Generic</span><br><span class="line">alias ls=&#x27;ls -G&#x27;</span><br><span class="line">alias su=&#x27;su -&#x27;</span><br><span class="line">alias ll=&#x27;ls -l&#x27;</span><br><span class="line">alias la=&#x27;ls -a&#x27;</span><br><span class="line">alias l=&#x27;ls -lF&#x27;</span><br><span class="line">alias df=&#x27;df -h&#x27;</span><br><span class="line"></span><br><span class="line"># Git</span><br><span class="line">alias ga=&#x27;git add&#x27;</span><br><span class="line">alias gb=&#x27;git branch&#x27;</span><br><span class="line">alias gba=&#x27;git branch -a&#x27;</span><br><span class="line">alias gbd=&#x27;git branch -d&#x27;</span><br><span class="line">alias gcam=&#x27;git commit -a -m&#x27;</span><br><span class="line">alias gcb=&#x27;git checkout -b&#x27;</span><br><span class="line">alias gco=&#x27;git checkout&#x27;</span><br><span class="line">alias gcp=&#x27;git cherry-pick&#x27;</span><br><span class="line">alias gd=&#x27;git diff&#x27;</span><br><span class="line">alias gfo=&#x27;git fetch origin&#x27;</span><br><span class="line">alias ggpush=&#x27;git push origin $(git_current_branch)&#x27;</span><br><span class="line">alias ggsup=&#x27;git branch --set-upstream-to=origin/$(git_current_branch)&#x27;</span><br><span class="line">alias glgp=&#x27;git log --stat -p&#x27;</span><br><span class="line">alias gm=&#x27;git merge&#x27;</span><br><span class="line">alias gpush=&#x27;git push&#x27;</span><br><span class="line">alias gst=&#x27;git status&#x27;</span><br><span class="line">alias gsta=&#x27;git stash save&#x27;</span><br><span class="line">alias gstp=&#x27;git stash pop&#x27;</span><br><span class="line">alias gpull=&#x27;git pull&#x27;</span><br><span class="line"></span><br><span class="line"># mysql</span><br><span class="line">alias mysql=&#x27;/usr/local/mysql/bin/mysql&#x27;</span><br><span class="line">alias mysqladmin=&#x27;/usr/local/mysql/bin/mysqladmin&#x27;</span><br><span class="line"></span><br><span class="line"># maven</span><br><span class="line">alias mi=&#x27;mvn clean install -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mp=&#x27;mvn clean package -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mdp=&#x27;mvn clean package deploy -Dmaven.test.skip=true&#x27;</span><br><span class="line"></span><br><span class="line">alias vim=&#x27;sudo vim&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[ -r &quot;/etc/zshrc_$TERM_PROGRAM&quot; ] &amp;&amp; . &quot;/etc/zshrc_$TERM_PROGRAM&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>事件驱动投资的九大建议</title>
     <url>/2023/12/06/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="/../images/event1.jpg" alt="Alt text"><br><img src="/../images/event2.jpg" alt="Alt text"></p>
@@ -308,15 +320,33 @@
       </tags>
   </entry>
   <entry>
-    <title>zshrc</title>
-    <url>/2017/11/14/zshrc/</url>
-    <content><![CDATA[<h1 id="zshrc-文件备份"><a href="#zshrc-文件备份" class="headerlink" title="zshrc  文件备份"></a>zshrc  文件备份</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Correctly display UTF-8 with combining characters.</span><br><span class="line">if [ &quot;$TERM_PROGRAM&quot; = &quot;Apple_Terminal&quot; ]; then</span><br><span class="line">	setopt combiningchars</span><br><span class="line">fi</span><br><span class="line">[[ -s ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh ]] &amp;&amp; . ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh</span><br><span class="line">[[ -s ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &amp;&amp; . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line">disable log</span><br><span class="line"># Generic</span><br><span class="line">alias ls=&#x27;ls -G&#x27;</span><br><span class="line">alias su=&#x27;su -&#x27;</span><br><span class="line">alias ll=&#x27;ls -l&#x27;</span><br><span class="line">alias la=&#x27;ls -a&#x27;</span><br><span class="line">alias l=&#x27;ls -lF&#x27;</span><br><span class="line">alias df=&#x27;df -h&#x27;</span><br><span class="line"></span><br><span class="line"># Git</span><br><span class="line">alias ga=&#x27;git add&#x27;</span><br><span class="line">alias gb=&#x27;git branch&#x27;</span><br><span class="line">alias gba=&#x27;git branch -a&#x27;</span><br><span class="line">alias gbd=&#x27;git branch -d&#x27;</span><br><span class="line">alias gcam=&#x27;git commit -a -m&#x27;</span><br><span class="line">alias gcb=&#x27;git checkout -b&#x27;</span><br><span class="line">alias gco=&#x27;git checkout&#x27;</span><br><span class="line">alias gcp=&#x27;git cherry-pick&#x27;</span><br><span class="line">alias gd=&#x27;git diff&#x27;</span><br><span class="line">alias gfo=&#x27;git fetch origin&#x27;</span><br><span class="line">alias ggpush=&#x27;git push origin $(git_current_branch)&#x27;</span><br><span class="line">alias ggsup=&#x27;git branch --set-upstream-to=origin/$(git_current_branch)&#x27;</span><br><span class="line">alias glgp=&#x27;git log --stat -p&#x27;</span><br><span class="line">alias gm=&#x27;git merge&#x27;</span><br><span class="line">alias gpush=&#x27;git push&#x27;</span><br><span class="line">alias gst=&#x27;git status&#x27;</span><br><span class="line">alias gsta=&#x27;git stash save&#x27;</span><br><span class="line">alias gstp=&#x27;git stash pop&#x27;</span><br><span class="line">alias gpull=&#x27;git pull&#x27;</span><br><span class="line"></span><br><span class="line"># mysql</span><br><span class="line">alias mysql=&#x27;/usr/local/mysql/bin/mysql&#x27;</span><br><span class="line">alias mysqladmin=&#x27;/usr/local/mysql/bin/mysqladmin&#x27;</span><br><span class="line"></span><br><span class="line"># maven</span><br><span class="line">alias mi=&#x27;mvn clean install -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mp=&#x27;mvn clean package -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mdp=&#x27;mvn clean package deploy -Dmaven.test.skip=true&#x27;</span><br><span class="line"></span><br><span class="line">alias vim=&#x27;sudo vim&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[ -r &quot;/etc/zshrc_$TERM_PROGRAM&quot; ] &amp;&amp; . &quot;/etc/zshrc_$TERM_PROGRAM&quot;</span><br></pre></td></tr></table></figure>
+    <title>可转债投资</title>
+    <url>/2023/12/23/%E5%8F%AF%E8%BD%AC%E5%80%BA/</url>
+    <content><![CDATA[<h2 id="可转债筛选及置换原则"><a href="#可转债筛选及置换原则" class="headerlink" title="可转债筛选及置换原则"></a>可转债筛选及置换原则</h2><p><img src="/../images/kezhuanzhai.PNG" alt="Alt text"></p>
+<h2 id="建仓策略"><a href="#建仓策略" class="headerlink" title="建仓策略"></a>建仓策略</h2><ol>
+<li>筛选满足条件的按PB降序的前10支可转债</li>
+<li>总资金的50%平均投到这10支可转债</li>
+<li>立即买入, 满足前面的筛选条件就认为满足建仓条件</li>
+</ol>
+<h2 id="补仓策略"><a href="#补仓策略" class="headerlink" title="补仓策略"></a>补仓策略</h2><p><img src="/../images/Margin.PNG" alt="Alt text"></p>
+<h2 id="卖出策略"><a href="#卖出策略" class="headerlink" title="卖出策略"></a>卖出策略</h2><p>提前设置价格到140就自动卖出</p>
+<h2 id="补充可转债分析数据"><a href="#补充可转债分析数据" class="headerlink" title="补充可转债分析数据"></a>补充可转债分析数据</h2><p>统计2023-12-31日之前退市的可转债总共349支，退市原因如下：</p>
+<ol>
+<li>强赎的293支，占比84%;</li>
+<li>到期的43支；</li>
+<li>剩余规模小于一定数字（例如3千万）的9支；</li>
+<li>正股退市或重整的4支。</li>
+</ol>
+<p>因此该策略的保本逻辑是大部分的可转债都会通过强赎退市，强赎的条件是“当上市公司可转债的正股价连续15-20天高于转股价的130%，则会触发强制赎回”，由于公司都是不想付钱收回债券的，所以公司会尽量达到强赎的条件，也即至少可转债的价格会达到130，对于120价格下建仓可保证不亏本。<br>再补充下回售的说明，“当上市公司可转债的正股价持续约30天低于转股价的70%-80%时，上市公司强制赎回可转债，赎回价格为101-103之间”，回售的价格一般较低，如果真发生回售了，就会亏本，一般建仓价都要大于回售价，但由于同样的原因，公司不愿意还钱，所以公司一般不会让回售这件事发生（但公司的回售公告还是要发的，可以不理睬），公司会通过下修转股价的方式来避免回售。</p>
+<blockquote>
+<p>ps:首支可转债是2010年发行, 13年的时间总共才349支可转债退市过，样本相对有点少</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>IT</category>
+        <category>Investment</category>
       </categories>
       <tags>
-        <tag>mac</tag>
+        <tag>Investment</tag>
       </tags>
   </entry>
   <entry>
@@ -359,32 +389,6 @@
 <h2 id="卖出策略"><a href="#卖出策略" class="headerlink" title="卖出策略"></a>卖出策略</h2><ol>
 <li>从第一次建仓开始计算总持仓的收益满足年化15%的要求则卖出</li>
 <li>提前设置自动定投，每月定投完成后按上面策略计算好卖出价，设置自动全仓卖出</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Investment</category>
-      </categories>
-      <tags>
-        <tag>Investment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>可转债投资</title>
-    <url>/2023/12/23/%E5%8F%AF%E8%BD%AC%E5%80%BA/</url>
-    <content><![CDATA[<h2 id="可转债筛选及置换原则"><a href="#可转债筛选及置换原则" class="headerlink" title="可转债筛选及置换原则"></a>可转债筛选及置换原则</h2><p><img src="/../images/kezhuanzhai.PNG" alt="Alt text"></p>
-<h2 id="建仓策略"><a href="#建仓策略" class="headerlink" title="建仓策略"></a>建仓策略</h2><ol>
-<li>筛选满足条件的按PB降序的前10支可转债</li>
-<li>总资金的50%平均投到这10支可转债</li>
-<li>立即买入, 满足前面的筛选条件就认为满足建仓条件</li>
-</ol>
-<h2 id="补仓策略"><a href="#补仓策略" class="headerlink" title="补仓策略"></a>补仓策略</h2><p><img src="/../images/Margin.PNG" alt="Alt text"></p>
-<h2 id="卖出策略"><a href="#卖出策略" class="headerlink" title="卖出策略"></a>卖出策略</h2><p>提前设置价格到140就自动卖出</p>
-<h2 id="补充可转债分析数据"><a href="#补充可转债分析数据" class="headerlink" title="补充可转债分析数据"></a>补充可转债分析数据</h2><p>统计2023-12-31日之前退市的可转债总共349支，退市原因如下：</p>
-<ol>
-<li>强赎的293支，占比84%;</li>
-<li>到期的43支；</li>
-<li>剩余规模小于一定数字（例如3千万）的9支；</li>
-<li>正股退市或重整的4支。<br>因此该策略的保本逻辑是大部分的可转债都会通过强赎退市，强赎的条件是“当上市公司可转债的正股价连续15-20天高于转股价的130%，则会触发强制赎回”，由于公司都是不想付钱收回债券的，所以公司会尽量达到强赎的条件，也即至少可转债的价格会达到130，对于120价格下建仓可保证不亏本。<br>再补充下回售的说明，“当上市公司可转债的正股价持续约30天低于转股价的70%-80%时，上市公司强制赎回可转债，赎回价格为101-103之间”，回售的价格一般较低，如果真发生回售了，就会亏本，一般建仓价都要大于回售价，但由于同样的原因，公司不愿意还钱，所以公司一般不会让回售这件事发生（但公司的回售公告还是要发的，可以不理睬），公司会通过下修转股价的方式来避免回售。</li>
 </ol>
 ]]></content>
       <categories>

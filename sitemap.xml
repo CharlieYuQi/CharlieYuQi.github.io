@@ -4,7 +4,7 @@
   <url>
     <loc>http://yuqi.tk/2023/12/23/%E5%8F%AF%E8%BD%AC%E5%80%BA/</loc>
     
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -211,7 +211,7 @@
 
   <url>
     <loc>http://yuqi.tk/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -219,77 +219,77 @@
   
   <url>
     <loc>http://yuqi.tk/tags/IT/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/Hibernate/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/Netty/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/ChannelPool/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
-    <lastmod>2023-12-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/Log4j/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuqi.tk/tags/SpringBoot/</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/mac/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/Git/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/java/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/tags/Investment/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -298,14 +298,14 @@
   
   <url>
     <loc>http://yuqi.tk/categories/IT/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yuqi.tk/categories/Investment/</loc>
-    <lastmod>2023-12-30</lastmod>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -118,22 +118,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MAC 创建 /home 文件夹</title>
-    <url>/2018/03/23/MAC-create-home-md/</url>
-    <content><![CDATA[<p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/auto_master</span><br></pre></td></tr></table></figure>
-
-<p>注释掉  #&#x2F;home<br>之后执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo automount</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>自定义log4j2配置文件地址</title>
     <url>/2017/09/18/2017-09-19-log4j2-configuration/</url>
     <content><![CDATA[<p>默认情况下，只要把log4j配置文件放在 CLASSPATH 环境变量所指定的目录， JAVA 启动时会制动加载。实际项目中经常需要把配置文件与打包分离，方便修改，所以需要自定义配置文件加载地址。</p>
@@ -163,6 +147,22 @@
       </tags>
   </entry>
   <entry>
+    <title>MAC 创建 /home 文件夹</title>
+    <url>/2018/03/23/MAC-create-home-md/</url>
+    <content><![CDATA[<p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/auto_master</span><br></pre></td></tr></table></figure>
+
+<p>注释掉  #&#x2F;home<br>之后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo automount</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>activate idea.md</title>
     <url>/2018/05/02/activate-idea-md/</url>
     <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.CRC32;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">keygen</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> s</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> i</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> bytes</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">short</span> <span class="title function_">getCRC</span><span class="params">(String s, <span class="type">int</span> i, <span class="type">byte</span> bytes[])</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="type">CRC32</span> <span class="variable">crc32</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CRC32</span>();</span><br><span class="line">      <span class="keyword">if</span> (s != <span class="literal">null</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; s.length(); j++)</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(j);</span><br><span class="line">              crc32.update(c);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      crc32.update(i);</span><br><span class="line">      crc32.update(i &gt;&gt; <span class="number">8</span>);</span><br><span class="line">      crc32.update(i &gt;&gt; <span class="number">16</span>);</span><br><span class="line">      crc32.update(i &gt;&gt; <span class="number">24</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>; k &lt; bytes.length - <span class="number">2</span>; k++)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="type">byte</span> <span class="variable">byte0</span> <span class="operator">=</span> bytes[k];</span><br><span class="line">          crc32.update(byte0);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> (<span class="type">short</span>) (<span class="type">int</span>) crc32.getValue();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> biginteger</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> String</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encodeGroups</span><span class="params">(BigInteger biginteger)</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="type">BigInteger</span> <span class="variable">beginner1</span> <span class="operator">=</span> BigInteger.valueOf(<span class="number">0x39aa400L</span>);</span><br><span class="line">      <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; biginteger.compareTo(BigInteger.ZERO) != <span class="number">0</span>; i++)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> biginteger.mod(beginner1).intValue();</span><br><span class="line">          <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> encodeGroup(j);</span><br><span class="line">          <span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">          &#123;</span><br><span class="line">              sb.append(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          sb.append(s1);</span><br><span class="line">          biginteger = biginteger.divide(beginner1);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> sb.toString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> i</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encodeGroup</span><span class="params">(<span class="type">int</span> i)</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> i % <span class="number">36</span>;</span><br><span class="line">          <span class="type">char</span> c;</span><br><span class="line">          <span class="keyword">if</span> (k &lt; <span class="number">10</span>)</span><br><span class="line">          &#123;</span><br><span class="line">              c = (<span class="type">char</span>) (<span class="number">48</span> + k);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">          &#123;</span><br><span class="line">              c = (<span class="type">char</span>) ((<span class="number">65</span> + k) - <span class="number">10</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          sb.append(c);</span><br><span class="line">          i /= <span class="number">36</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> sb.toString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> days</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> prtype</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">MakeKey</span><span class="params">(String name, <span class="type">int</span> days, <span class="type">int</span> id)</span></span><br><span class="line">  &#123;</span><br><span class="line">      id %= <span class="number">100000</span>;</span><br><span class="line">      <span class="type">byte</span> bkey[] = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">12</span>];</span><br><span class="line">      bkey[<span class="number">0</span>] = (<span class="type">byte</span>) <span class="number">1</span>; <span class="comment">// Product type: IntelliJ IDEA is 1</span></span><br><span class="line">      bkey[<span class="number">1</span>] = <span class="number">14</span>; <span class="comment">// version</span></span><br><span class="line">      <span class="type">Date</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">      <span class="type">long</span> <span class="variable">ld</span> <span class="operator">=</span> (d.getTime() &gt;&gt; <span class="number">16</span>);</span><br><span class="line">      bkey[<span class="number">2</span>] = (<span class="type">byte</span>) (ld &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">3</span>] = (<span class="type">byte</span>) ((ld &gt;&gt; <span class="number">8</span>) &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">4</span>] = (<span class="type">byte</span>) ((ld &gt;&gt; <span class="number">16</span>) &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">5</span>] = (<span class="type">byte</span>) ((ld &gt;&gt; <span class="number">24</span>) &amp; <span class="number">255</span>);</span><br><span class="line">      days &amp;= <span class="number">0xffff</span>;</span><br><span class="line">      bkey[<span class="number">6</span>] = (<span class="type">byte</span>) (days &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">7</span>] = (<span class="type">byte</span>) ((days &gt;&gt; <span class="number">8</span>) &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">8</span>] = <span class="number">105</span>;</span><br><span class="line">      bkey[<span class="number">9</span>] = -<span class="number">59</span>;</span><br><span class="line">      bkey[<span class="number">10</span>] = <span class="number">0</span>;</span><br><span class="line">      bkey[<span class="number">11</span>] = <span class="number">0</span>;</span><br><span class="line">      <span class="type">int</span> <span class="variable">w</span> <span class="operator">=</span> getCRC(name, id % <span class="number">100000</span>, bkey);</span><br><span class="line">      bkey[<span class="number">10</span>] = (<span class="type">byte</span>) (w &amp; <span class="number">255</span>);</span><br><span class="line">      bkey[<span class="number">11</span>] = (<span class="type">byte</span>) ((w &gt;&gt; <span class="number">8</span>) &amp; <span class="number">255</span>);</span><br><span class="line">      <span class="type">BigInteger</span> <span class="variable">pow</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigInteger</span>(<span class="string">&quot;89126272330128007543578052027888001981&quot;</span>, <span class="number">10</span>);</span><br><span class="line">      <span class="type">BigInteger</span> <span class="variable">mod</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigInteger</span>(<span class="string">&quot;86f71688cdd2612ca117d1f54bdae029&quot;</span>, <span class="number">16</span>);</span><br><span class="line">      <span class="type">BigInteger</span> <span class="variable">k0</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigInteger</span>(bkey);</span><br><span class="line">      <span class="type">BigInteger</span> <span class="variable">k1</span> <span class="operator">=</span> k0.modPow(pow, mod);</span><br><span class="line">      <span class="type">String</span> <span class="variable">s0</span> <span class="operator">=</span> Integer.toString(id);</span><br><span class="line">      <span class="type">String</span> <span class="variable">sz</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">      <span class="keyword">while</span> (s0.length() != <span class="number">5</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          s0 = sz.concat(s0);</span><br><span class="line">      &#125;</span><br><span class="line">      s0 = s0.concat(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">      <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> encodeGroups(k1);</span><br><span class="line">      s0 = s0.concat(s1);</span><br><span class="line">      <span class="keyword">return</span> s0;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">if</span> (args.length == <span class="number">0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          System.err.printf(<span class="string">&quot;*** Usage: %s name%n&quot;</span>, keygen.class.getCanonicalName());</span><br><span class="line">          System.exit(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">      System.out.println(MakeKey(args[<span class="number">0</span>], <span class="number">0</span>, r.nextInt(<span class="number">100000</span>)));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -175,6 +175,24 @@
     <title>copyless</title>
     <url>/2017/11/21/copyless/</url>
     <content><![CDATA[<p>Copyless 2 更新后直接粘贴的功能用不了了，即使装了copyless helper插件，还是不能使用该功能。<br>暂时使用jumpcut代替，jump简洁一些，功能要少，不支持多媒体文件复制等等</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -198,22 +216,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/12/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>mac-quick</title>
+    <url>/2017/09/22/mac-quick/</url>
+    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
+<p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
+<p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页</p>
+<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 ]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
   </entry>
   <entry>
     <title>MAC下提高工作效率的软件推荐</title>
@@ -233,22 +249,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mac-quick</title>
-    <url>/2017/09/22/mac-quick/</url>
-    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
-<p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
-<p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页</p>
-<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MapStruct Introduction</title>
     <url>/2023/12/03/mapstruct/</url>
     <content><![CDATA[<p>&emsp; &emsp; MapStruct是一种类型安全的bean映射类生成java注释处理器。<br>&emsp; &emsp; 我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。</p>
@@ -259,6 +259,27 @@
 <p>Lombok 1.18.16 introduces a breaking change (changelog). The additional annotation processor lombok-mapstruct-binding (Maven) must be added otherwise MapStruct stops working with Lombok. This resolves the compilation issues of Lombok and MapStruct modules.</p>
 </blockquote>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">org.mapstruct.version</span>&gt;</span>1.5.5.Final<span class="tag">&lt;/<span class="name">org.mapstruct.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">org.projectlombok.version</span>&gt;</span>1.18.16<span class="tag">&lt;/<span class="name">org.projectlombok.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.mapstruct.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- lombok dependency should not end up on classpath --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.projectlombok.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">annotationProcessorPaths</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.mapstruct.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.projectlombok.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">&lt;!-- additional annotation processor required as of Lombok 1.18.16 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok-mapstruct-binding<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">annotationProcessorPaths</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>useful third package.md</title>
+    <url>/2019/02/14/useful-third-package-md/</url>
+    <content><![CDATA[<h1 id="1-JaVers"><a href="#1-JaVers" class="headerlink" title="1. JaVers"></a>1. JaVers</h1><p>  Object auditing and diff framework for Java;JaVers是一个轻量级的对象比较&#x2F;审计框架,非常易于使用。支持持久化，支持springboot。</p>
+<blockquote>
+<p>如果你需要实时比较生产环境的处理结果和备份环境的处理结果，或是在新系统中重放生产环境的请求，或者像代码一样对对象进行版本管理，那么JaVers就可以成为你的好朋友。它不仅可以比较对象，也可以将比较结果存储在数据库中以便审计。审计是这样的一种需求：作为用户，我希望知道谁改变了状态;是什么时候改变的，以及原先的状态是什么。<br><a href="https://javers.org/">官网地址</a><br>  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javers-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="2-MapStruct"><a href="#2-MapStruct" class="headerlink" title="2. MapStruct"></a>2. MapStruct</h1><p>MapStruct是一种类型安全的bean映射类生成java注释处理器。</p>
+<blockquote>
+<p>我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。<br><a href="http://mapstruct.org/">官网地址</a></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-jdk8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>IT</category>
@@ -373,14 +394,15 @@
 <thead>
 <tr>
 <th><strong>日期</strong></th>
-<th><strong>价格</strong></th>
+<th><strong>开盘价</strong></th>
 <th><strong>收盘价</strong></th>
 <th><strong>定投金额</strong></th>
 <th><strong>份额</strong></th>
 <th><strong>成本</strong></th>
 <th><strong>份额</strong></th>
 <th><strong>持仓市值</strong></th>
-<th><strong>盈亏</strong></th>
+<th><strong>当月盈亏</strong></th>
+<th><strong>总盈亏</strong></th>
 <th><strong>盈亏比例</strong></th>
 </tr>
 </thead>
@@ -394,6 +416,7 @@
 <td>2629.503024</td>
 <td>9205.890087</td>
 <td>-794.1099132</td>
+<td>-794.1099132</td>
 <td>-7.94%</td>
 </tr>
 <tr>
@@ -405,6 +428,7 @@
 <td>20000</td>
 <td>5469.605268</td>
 <td>21041.57146</td>
+<td>1835.681378</td>
 <td>1041.571464</td>
 <td>5.21%</td>
 </tr>
@@ -417,6 +441,7 @@
 <td>30000</td>
 <td>8023.231417</td>
 <td>31081.99851</td>
+<td>40.42704396</td>
 <td>1081.998508</td>
 <td>3.61%</td>
 </tr>
@@ -429,6 +454,7 @@
 <td>40000</td>
 <td>10605.20921</td>
 <td>44107.06511</td>
+<td>3025.066603</td>
 <td>4107.065112</td>
 <td>10.27%</td>
 </tr>
@@ -441,6 +467,7 @@
 <td>50000</td>
 <td>13006.7462</td>
 <td>52950.46376</td>
+<td>-1156.60135</td>
 <td>2950.463761</td>
 <td>5.90%</td>
 </tr>
@@ -453,6 +480,7 @@
 <td>60000</td>
 <td>15465.56105</td>
 <td>62635.52224</td>
+<td>-314.9415226</td>
 <td>2635.522239</td>
 <td>4.39%</td>
 </tr>
@@ -465,6 +493,7 @@
 <td>70000</td>
 <td>17934.69685</td>
 <td>72187.15482</td>
+<td>-448.3674212</td>
 <td>2187.154818</td>
 <td>3.12%</td>
 </tr>
@@ -477,6 +506,7 @@
 <td>80000</td>
 <td>20426.59817</td>
 <td>77661.92624</td>
+<td>-4525.228576</td>
 <td>-2338.073758</td>
 <td>-2.92%</td>
 </tr>
@@ -489,6 +519,7 @@
 <td>90000</td>
 <td>23058.86982</td>
 <td>89514.53264</td>
+<td>1852.606401</td>
 <td>-485.4673578</td>
 <td>-0.54%</td>
 </tr>
@@ -501,6 +532,7 @@
 <td>100000</td>
 <td>25629.56391</td>
 <td>104671.139</td>
+<td>5156.606357</td>
 <td>4671.138999</td>
 <td>4.67%</td>
 </tr>
@@ -513,6 +545,7 @@
 <td>110000</td>
 <td>28080.5443</td>
 <td>107801.2096</td>
+<td>-6869.929432</td>
 <td>-2198.790433</td>
 <td>-2.00%</td>
 </tr>
@@ -525,6 +558,7 @@
 <td>120000</td>
 <td>30673.23292</td>
 <td>115454.0487</td>
+<td>-2347.160864</td>
 <td>-4545.951297</td>
 <td>-3.79%</td>
 </tr>
@@ -537,6 +571,7 @@
 <td>130000</td>
 <td>33334.93108</td>
 <td>121472.4889</td>
+<td>-3981.559843</td>
 <td>-8527.51114</td>
 <td>-6.56%</td>
 </tr>
@@ -549,6 +584,7 @@
 <td>140000</td>
 <td>36052.32239</td>
 <td>128418.3723</td>
+<td>-3054.116523</td>
 <td>-11581.62766</td>
 <td>-8.27%</td>
 </tr>
@@ -561,6 +597,7 @@
 <td>150000</td>
 <td>38860.52233</td>
 <td>135972.9676</td>
+<td>-2445.404707</td>
 <td>-14027.03237</td>
 <td>-9.35%</td>
 </tr>
@@ -571,27 +608,6 @@
       </categories>
       <tags>
         <tag>Investment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>useful third package.md</title>
-    <url>/2019/02/14/useful-third-package-md/</url>
-    <content><![CDATA[<h1 id="1-JaVers"><a href="#1-JaVers" class="headerlink" title="1. JaVers"></a>1. JaVers</h1><p>  Object auditing and diff framework for Java;JaVers是一个轻量级的对象比较&#x2F;审计框架,非常易于使用。支持持久化，支持springboot。</p>
-<blockquote>
-<p>如果你需要实时比较生产环境的处理结果和备份环境的处理结果，或是在新系统中重放生产环境的请求，或者像代码一样对对象进行版本管理，那么JaVers就可以成为你的好朋友。它不仅可以比较对象，也可以将比较结果存储在数据库中以便审计。审计是这样的一种需求：作为用户，我希望知道谁改变了状态;是什么时候改变的，以及原先的状态是什么。<br><a href="https://javers.org/">官网地址</a><br>  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javers-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="2-MapStruct"><a href="#2-MapStruct" class="headerlink" title="2. MapStruct"></a>2. MapStruct</h1><p>MapStruct是一种类型安全的bean映射类生成java注释处理器。</p>
-<blockquote>
-<p>我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。<br><a href="http://mapstruct.org/">官网地址</a></p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct-jdk8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>java</tag>
       </tags>
   </entry>
 </search>

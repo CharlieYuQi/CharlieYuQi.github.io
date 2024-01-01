@@ -91,35 +91,6 @@
       </tags>
   </entry>
   <entry>
-    <title>自定义log4j2配置文件地址</title>
-    <url>/2017/09/18/2017-09-19-log4j2-configuration/</url>
-    <content><![CDATA[<p>默认情况下，只要把log4j配置文件放在 CLASSPATH 环境变量所指定的目录， JAVA 启动时会制动加载。实际项目中经常需要把配置文件与打包分离，方便修改，所以需要自定义配置文件加载地址。</p>
-<h1 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h1><p>采用spring mvc框架时需要一般在web.xml里配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;classpath:log4j.properties&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;log4jRefreshInterval&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;6000&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><p>采用spring boot轻量级框架后，大部分自定义配置都放在application.properties里了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">logging.config=file:config/log4j2.xm</span><br></pre></td></tr></table></figure>
-
-<h1 id="无框架"><a href="#无框架" class="headerlink" title="无框架"></a>无框架</h1><p>本节为本文重点，发现很多人离了框架就不知道该怎么写代码了。</p>
-<span id="more"></span>
-
-<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>键值对格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PropertyConfigurator.config(filepath) </span><br></pre></td></tr></table></figure>
-<p>XML 格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DOMConfigurator.config(filepath) </span><br></pre></td></tr></table></figure>
-<h2 id="log4j2"><a href="#log4j2" class="headerlink" title="log4j2"></a>log4j2</h2><p>log4j2里一般不建议使用properties文件，而是使用xml文件。log4j2的版本里自定义配置文件加载地址的接口改为Configurator.initialize了</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ConfigurationSource source;</span><br><span class="line">        <span class="type">String</span> <span class="variable">relativePath</span> <span class="operator">=</span></span><br><span class="line">                <span class="string">&quot;config&quot;</span> + System.getProperty(<span class="string">&quot;file.separator&quot;</span>) + <span class="string">&quot;log4j2.xml&quot;</span>;</span><br><span class="line">        <span class="type">File</span> <span class="variable">log4jFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(</span><br><span class="line">                System.getProperty(<span class="string">&quot;user.dir&quot;</span>) + System.getProperty(<span class="string">&quot;file.separator&quot;</span>)</span><br><span class="line">                        + relativePath);</span><br><span class="line">        <span class="keyword">if</span> (log4jFile.exists()) &#123;</span><br><span class="line">            source = <span class="keyword">new</span> <span class="title class_">ConfigurationSource</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(log4jFile), log4jFile);</span><br><span class="line">            Configurator.initialize(<span class="literal">null</span>, source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>Log4j</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot+Nginx+Https下redirect问题</title>
     <url>/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</url>
     <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>项目采用springboot框架，内嵌tomcat容器。前端采用nginx反向代理，当部署了https以后出现的重定向（redirect）的问题。用nginx反向代理tomcat，然后把nginx配置为https访问，并且nginx与tomcat之间配置为普通的http协议，当后台代码定义时redirect，实际是重定向到了http下的地址，导致浏览器上无法访问非https的地址。</p>
@@ -176,6 +147,35 @@
     <url>/2017/11/21/copyless/</url>
     <content><![CDATA[<p>Copyless 2 更新后直接粘贴的功能用不了了，即使装了copyless helper插件，还是不能使用该功能。<br>暂时使用jumpcut代替，jump简洁一些，功能要少，不支持多媒体文件复制等等</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>自定义log4j2配置文件地址</title>
+    <url>/2017/09/18/2017-09-19-log4j2-configuration/</url>
+    <content><![CDATA[<p>默认情况下，只要把log4j配置文件放在 CLASSPATH 环境变量所指定的目录， JAVA 启动时会制动加载。实际项目中经常需要把配置文件与打包分离，方便修改，所以需要自定义配置文件加载地址。</p>
+<h1 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h1><p>采用spring mvc框架时需要一般在web.xml里配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;classpath:log4j.properties&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;log4jRefreshInterval&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;6000&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><p>采用spring boot轻量级框架后，大部分自定义配置都放在application.properties里了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">logging.config=file:config/log4j2.xm</span><br></pre></td></tr></table></figure>
+
+<h1 id="无框架"><a href="#无框架" class="headerlink" title="无框架"></a>无框架</h1><p>本节为本文重点，发现很多人离了框架就不知道该怎么写代码了。</p>
+<span id="more"></span>
+
+<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>键值对格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PropertyConfigurator.config(filepath) </span><br></pre></td></tr></table></figure>
+<p>XML 格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DOMConfigurator.config(filepath) </span><br></pre></td></tr></table></figure>
+<h2 id="log4j2"><a href="#log4j2" class="headerlink" title="log4j2"></a>log4j2</h2><p>log4j2里一般不建议使用properties文件，而是使用xml文件。log4j2的版本里自定义配置文件加载地址的接口改为Configurator.initialize了</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ConfigurationSource source;</span><br><span class="line">        <span class="type">String</span> <span class="variable">relativePath</span> <span class="operator">=</span></span><br><span class="line">                <span class="string">&quot;config&quot;</span> + System.getProperty(<span class="string">&quot;file.separator&quot;</span>) + <span class="string">&quot;log4j2.xml&quot;</span>;</span><br><span class="line">        <span class="type">File</span> <span class="variable">log4jFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(</span><br><span class="line">                System.getProperty(<span class="string">&quot;user.dir&quot;</span>) + System.getProperty(<span class="string">&quot;file.separator&quot;</span>)</span><br><span class="line">                        + relativePath);</span><br><span class="line">        <span class="keyword">if</span> (log4jFile.exists()) &#123;</span><br><span class="line">            source = <span class="keyword">new</span> <span class="title class_">ConfigurationSource</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(log4jFile), log4jFile);</span><br><span class="line">            Configurator.initialize(<span class="literal">null</span>, source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+        <tag>Log4j</tag>
+      </tags>
   </entry>
   <entry>
     <title>Gitflow Workflow</title>
@@ -296,18 +296,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>zshrc</title>
-    <url>/2017/11/14/zshrc/</url>
-    <content><![CDATA[<h1 id="zshrc-文件备份"><a href="#zshrc-文件备份" class="headerlink" title="zshrc  文件备份"></a>zshrc  文件备份</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Correctly display UTF-8 with combining characters.</span><br><span class="line">if [ &quot;$TERM_PROGRAM&quot; = &quot;Apple_Terminal&quot; ]; then</span><br><span class="line">	setopt combiningchars</span><br><span class="line">fi</span><br><span class="line">[[ -s ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh ]] &amp;&amp; . ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh</span><br><span class="line">[[ -s ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &amp;&amp; . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line">disable log</span><br><span class="line"># Generic</span><br><span class="line">alias ls=&#x27;ls -G&#x27;</span><br><span class="line">alias su=&#x27;su -&#x27;</span><br><span class="line">alias ll=&#x27;ls -l&#x27;</span><br><span class="line">alias la=&#x27;ls -a&#x27;</span><br><span class="line">alias l=&#x27;ls -lF&#x27;</span><br><span class="line">alias df=&#x27;df -h&#x27;</span><br><span class="line"></span><br><span class="line"># Git</span><br><span class="line">alias ga=&#x27;git add&#x27;</span><br><span class="line">alias gb=&#x27;git branch&#x27;</span><br><span class="line">alias gba=&#x27;git branch -a&#x27;</span><br><span class="line">alias gbd=&#x27;git branch -d&#x27;</span><br><span class="line">alias gcam=&#x27;git commit -a -m&#x27;</span><br><span class="line">alias gcb=&#x27;git checkout -b&#x27;</span><br><span class="line">alias gco=&#x27;git checkout&#x27;</span><br><span class="line">alias gcp=&#x27;git cherry-pick&#x27;</span><br><span class="line">alias gd=&#x27;git diff&#x27;</span><br><span class="line">alias gfo=&#x27;git fetch origin&#x27;</span><br><span class="line">alias ggpush=&#x27;git push origin $(git_current_branch)&#x27;</span><br><span class="line">alias ggsup=&#x27;git branch --set-upstream-to=origin/$(git_current_branch)&#x27;</span><br><span class="line">alias glgp=&#x27;git log --stat -p&#x27;</span><br><span class="line">alias gm=&#x27;git merge&#x27;</span><br><span class="line">alias gpush=&#x27;git push&#x27;</span><br><span class="line">alias gst=&#x27;git status&#x27;</span><br><span class="line">alias gsta=&#x27;git stash save&#x27;</span><br><span class="line">alias gstp=&#x27;git stash pop&#x27;</span><br><span class="line">alias gpull=&#x27;git pull&#x27;</span><br><span class="line"></span><br><span class="line"># mysql</span><br><span class="line">alias mysql=&#x27;/usr/local/mysql/bin/mysql&#x27;</span><br><span class="line">alias mysqladmin=&#x27;/usr/local/mysql/bin/mysqladmin&#x27;</span><br><span class="line"></span><br><span class="line"># maven</span><br><span class="line">alias mi=&#x27;mvn clean install -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mp=&#x27;mvn clean package -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mdp=&#x27;mvn clean package deploy -Dmaven.test.skip=true&#x27;</span><br><span class="line"></span><br><span class="line">alias vim=&#x27;sudo vim&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[ -r &quot;/etc/zshrc_$TERM_PROGRAM&quot; ] &amp;&amp; . &quot;/etc/zshrc_$TERM_PROGRAM&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>事件驱动投资的九大建议</title>
     <url>/2023/12/06/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="/../images/event1.jpg" alt="Alt text"><br><img src="/../images/event2.jpg" alt="Alt text"></p>
@@ -317,6 +305,18 @@
       </categories>
       <tags>
         <tag>Investment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zshrc</title>
+    <url>/2017/11/14/zshrc/</url>
+    <content><![CDATA[<h1 id="zshrc-文件备份"><a href="#zshrc-文件备份" class="headerlink" title="zshrc  文件备份"></a>zshrc  文件备份</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Correctly display UTF-8 with combining characters.</span><br><span class="line">if [ &quot;$TERM_PROGRAM&quot; = &quot;Apple_Terminal&quot; ]; then</span><br><span class="line">	setopt combiningchars</span><br><span class="line">fi</span><br><span class="line">[[ -s ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh ]] &amp;&amp; . ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh</span><br><span class="line">[[ -s ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &amp;&amp; . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line">disable log</span><br><span class="line"># Generic</span><br><span class="line">alias ls=&#x27;ls -G&#x27;</span><br><span class="line">alias su=&#x27;su -&#x27;</span><br><span class="line">alias ll=&#x27;ls -l&#x27;</span><br><span class="line">alias la=&#x27;ls -a&#x27;</span><br><span class="line">alias l=&#x27;ls -lF&#x27;</span><br><span class="line">alias df=&#x27;df -h&#x27;</span><br><span class="line"></span><br><span class="line"># Git</span><br><span class="line">alias ga=&#x27;git add&#x27;</span><br><span class="line">alias gb=&#x27;git branch&#x27;</span><br><span class="line">alias gba=&#x27;git branch -a&#x27;</span><br><span class="line">alias gbd=&#x27;git branch -d&#x27;</span><br><span class="line">alias gcam=&#x27;git commit -a -m&#x27;</span><br><span class="line">alias gcb=&#x27;git checkout -b&#x27;</span><br><span class="line">alias gco=&#x27;git checkout&#x27;</span><br><span class="line">alias gcp=&#x27;git cherry-pick&#x27;</span><br><span class="line">alias gd=&#x27;git diff&#x27;</span><br><span class="line">alias gfo=&#x27;git fetch origin&#x27;</span><br><span class="line">alias ggpush=&#x27;git push origin $(git_current_branch)&#x27;</span><br><span class="line">alias ggsup=&#x27;git branch --set-upstream-to=origin/$(git_current_branch)&#x27;</span><br><span class="line">alias glgp=&#x27;git log --stat -p&#x27;</span><br><span class="line">alias gm=&#x27;git merge&#x27;</span><br><span class="line">alias gpush=&#x27;git push&#x27;</span><br><span class="line">alias gst=&#x27;git status&#x27;</span><br><span class="line">alias gsta=&#x27;git stash save&#x27;</span><br><span class="line">alias gstp=&#x27;git stash pop&#x27;</span><br><span class="line">alias gpull=&#x27;git pull&#x27;</span><br><span class="line"></span><br><span class="line"># mysql</span><br><span class="line">alias mysql=&#x27;/usr/local/mysql/bin/mysql&#x27;</span><br><span class="line">alias mysqladmin=&#x27;/usr/local/mysql/bin/mysqladmin&#x27;</span><br><span class="line"></span><br><span class="line"># maven</span><br><span class="line">alias mi=&#x27;mvn clean install -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mp=&#x27;mvn clean package -Dmaven.test.skip=true&#x27;</span><br><span class="line">alias mdp=&#x27;mvn clean package deploy -Dmaven.test.skip=true&#x27;</span><br><span class="line"></span><br><span class="line">alias vim=&#x27;sudo vim&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[ -r &quot;/etc/zshrc_$TERM_PROGRAM&quot; ] &amp;&amp; . &quot;/etc/zshrc_$TERM_PROGRAM&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
       </tags>
   </entry>
   <entry>
@@ -330,7 +330,7 @@
 </ol>
 <h2 id="补仓策略"><a href="#补仓策略" class="headerlink" title="补仓策略"></a>补仓策略</h2><p><img src="/../images/Margin.PNG" alt="Alt text"></p>
 <h2 id="卖出策略"><a href="#卖出策略" class="headerlink" title="卖出策略"></a>卖出策略</h2><p>提前设置价格到140就自动卖出</p>
-<h2 id="补充可转债分析数据"><a href="#补充可转债分析数据" class="headerlink" title="补充可转债分析数据"></a>补充可转债分析数据</h2><p>统计2023-12-31日之前退市的可转债总共349支，退市原因如下：</p>
+<h2 id="补充可转债分析数据"><a href="#补充可转债分析数据" class="headerlink" title="补充可转债分析数据"></a>补充可转债分析数据</h2><p><a href="https://www.jisilu.cn/web/data/cb/delisted">已退市转债</a><br>统计2023-12-31日之前退市的可转债总共349支，退市原因如下：</p>
 <ol>
 <li>强赎的293支，占比84%;</li>
 <li>到期的43支；</li>

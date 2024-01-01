@@ -164,15 +164,6 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
-    
-    <lastmod>2021-09-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yuqi.tk/2017/09/18/2017-09-18-springboot-nginx-redirect-qa/</loc>
     
     <lastmod>2021-09-28</lastmod>
@@ -192,6 +183,15 @@
   
   <url>
     <loc>http://yuqi.tk/2018/05/02/activate-idea-md/</loc>
+    
+    <lastmod>2021-09-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuqi.tk/2017/09/18/2017-09-19-log4j2-configuration/</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -253,13 +253,6 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/Log4j/</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://yuqi.tk/tags/SpringBoot/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -268,6 +261,13 @@
   
   <url>
     <loc>http://yuqi.tk/tags/mac/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuqi.tk/tags/Log4j/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

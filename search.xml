@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HibernateException  Found shared references to a collection</title>
-    <url>/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</url>
-    <content><![CDATA[<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>项目采用SpringBoot框架，数据库访问采用JPA。新增功能时出现<code>HibernateException: Found shared references to a collection</code><br>具体情况是权限管理模型基于RBAC，有User，Role，Authority 三个实体以及上述三者的两两关联表，共计六张表。<br>当创建一个用户时，首先通过 Role 获取 Authority List，再赋值给 User的 Authority List，最后将用户写入数据库时抛出以上异常。<br>数据模型如下，省略部分字段。</p>
-<span id="more"></span>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="meta">@ManyToMany</span></span><br><span class="line">    <span class="meta">@JoinTable(name = &quot;UserAuthority&quot;, joinColumns = &#123; @JoinColumn(name = &quot;userId&quot;) &#125;, inverseJoinColumns = &#123; @JoinColumn(name = &quot;authorityId&quot;) &#125;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Authority&gt; authorities;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToOne(fetch = FetchType.EAGER)</span></span><br><span class="line">    <span class="keyword">private</span> Role role;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Role</span> &#123;</span><br><span class="line">    <span class="meta">@OneToMany(mappedBy = &quot;role&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;User&gt; user;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany</span></span><br><span class="line">    <span class="meta">@JoinTable(name = &quot;RoleAuthority&quot;, joinColumns = &#123; @JoinColumn(name = &quot;roleId&quot;) &#125;, inverseJoinColumns = &#123; @JoinColumn(name = &quot;authorityId&quot;) &#125;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Authority&gt; authorities;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Authority</span> &#123;</span><br><span class="line">    <span class="meta">@ManyToMany(mappedBy = &quot;authorities&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;Role&gt; roles;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany(mappedBy = &quot;authorities&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;User&gt; users;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> User <span class="title function_">createUser</span><span class="params">(String name, String role)</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setName(name);</span><br><span class="line">    user.setRole(roleService.findByRole(role));</span><br><span class="line">    List&lt;Authority&gt; authorities = roleService.getAuthoritiesByRole(role);</span><br><span class="line">    user.setAuthorities(authorities);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>参见<br><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html">Hibernate UserGuide 2.8.1. Collections as a value type</a> 两个实体不可以共享同一个集合，上例中 Role 和 User 共用了同一个  Authority List，最终导致以上问题。</p>
-<blockquote>
-<p>Two entities cannot share a reference to the same collection instance. Collection-valued properties do not support null value semantics because Hibernate does not distinguish between a null collection reference and an empty collection.</p>
-</blockquote>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>新建一个集合，将原来的集合元素添加进去，并赋值给另一个实体</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> User <span class="title function_">createUser</span><span class="params">(String name, String role)</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setName(name);</span><br><span class="line">    user.setRole(roleService.findByRole(role));</span><br><span class="line">    List&lt;Authority&gt; authorities = roleService.getAuthoritiesByRole(role);</span><br><span class="line"></span><br><span class="line">    List&lt;Authority&gt; clonedAuthorities = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(authorities.size());</span><br><span class="line">    authorities.forEach(authority -&gt; clonedAuthorities.add(authority));</span><br><span class="line"></span><br><span class="line">    user.setAuthorities(clonedAuthorities);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>IT</tag>
-        <tag>Hibernate</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Netty连接池ChannelPool,FixedChannelPool应用</title>
     <url>/2017/09/18/2017-09-18-Netty_channelpool/</url>
     <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
@@ -88,6 +61,33 @@
       <tags>
         <tag>IT</tag>
         <tag>OpenTSDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HibernateException  Found shared references to a collection</title>
+    <url>/2017/09/18/2017-09-18-HibernateException-shared-references-to-a-collection/</url>
+    <content><![CDATA[<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>项目采用SpringBoot框架，数据库访问采用JPA。新增功能时出现<code>HibernateException: Found shared references to a collection</code><br>具体情况是权限管理模型基于RBAC，有User，Role，Authority 三个实体以及上述三者的两两关联表，共计六张表。<br>当创建一个用户时，首先通过 Role 获取 Authority List，再赋值给 User的 Authority List，最后将用户写入数据库时抛出以上异常。<br>数据模型如下，省略部分字段。</p>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="meta">@ManyToMany</span></span><br><span class="line">    <span class="meta">@JoinTable(name = &quot;UserAuthority&quot;, joinColumns = &#123; @JoinColumn(name = &quot;userId&quot;) &#125;, inverseJoinColumns = &#123; @JoinColumn(name = &quot;authorityId&quot;) &#125;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Authority&gt; authorities;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToOne(fetch = FetchType.EAGER)</span></span><br><span class="line">    <span class="keyword">private</span> Role role;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Role</span> &#123;</span><br><span class="line">    <span class="meta">@OneToMany(mappedBy = &quot;role&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;User&gt; user;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany</span></span><br><span class="line">    <span class="meta">@JoinTable(name = &quot;RoleAuthority&quot;, joinColumns = &#123; @JoinColumn(name = &quot;roleId&quot;) &#125;, inverseJoinColumns = &#123; @JoinColumn(name = &quot;authorityId&quot;) &#125;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Authority&gt; authorities;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Authority</span> &#123;</span><br><span class="line">    <span class="meta">@ManyToMany(mappedBy = &quot;authorities&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;Role&gt; roles;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany(mappedBy = &quot;authorities&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;User&gt; users;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> User <span class="title function_">createUser</span><span class="params">(String name, String role)</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setName(name);</span><br><span class="line">    user.setRole(roleService.findByRole(role));</span><br><span class="line">    List&lt;Authority&gt; authorities = roleService.getAuthoritiesByRole(role);</span><br><span class="line">    user.setAuthorities(authorities);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>参见<br><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html">Hibernate UserGuide 2.8.1. Collections as a value type</a> 两个实体不可以共享同一个集合，上例中 Role 和 User 共用了同一个  Authority List，最终导致以上问题。</p>
+<blockquote>
+<p>Two entities cannot share a reference to the same collection instance. Collection-valued properties do not support null value semantics because Hibernate does not distinguish between a null collection reference and an empty collection.</p>
+</blockquote>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>新建一个集合，将原来的集合元素添加进去，并赋值给另一个实体</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> User <span class="title function_">createUser</span><span class="params">(String name, String role)</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setName(name);</span><br><span class="line">    user.setRole(roleService.findByRole(role));</span><br><span class="line">    List&lt;Authority&gt; authorities = roleService.getAuthoritiesByRole(role);</span><br><span class="line"></span><br><span class="line">    List&lt;Authority&gt; clonedAuthorities = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(authorities.size());</span><br><span class="line">    authorities.forEach(authority -&gt; clonedAuthorities.add(authority));</span><br><span class="line"></span><br><span class="line">    user.setAuthorities(clonedAuthorities);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+        <tag>Hibernate</tag>
       </tags>
   </entry>
   <entry>
@@ -178,24 +178,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/12/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Gitflow Workflow</title>
     <url>/2017/09/26/git-flow/</url>
     <content><![CDATA[<h1 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h1><p>官方完整版见<a href="https://www.atlassian.com/git/tutorials/comparing-workflows">这里</a></p>
@@ -216,20 +198,22 @@
       </tags>
   </entry>
   <entry>
-    <title>mac-quick</title>
-    <url>/2017/09/22/mac-quick/</url>
-    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
-<p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
-<p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页</p>
-<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+    <title>Hello World</title>
+    <url>/2023/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
   </entry>
   <entry>
     <title>MAC下提高工作效率的软件推荐</title>
@@ -240,6 +224,22 @@
 <li>相关地址：<a href="https://github.com/2ndalpha/gasmask">2ndalpha&#x2F;gasmask · GitHub</a><br><img src="https://pic2.zhimg.com/50/087958b74299020dcc63c4b020281625_hd.jpg" alt="titie"></li>
 </ul>
 <h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1><h1 id="Copia"><a href="#Copia" class="headerlink" title="Copia"></a>Copia</h1><p>是一个复制粘贴管理工具，可以记录复制历史，然后粘贴任意你曾经复制过的内容。</p>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mac-quick</title>
+    <url>/2017/09/22/mac-quick/</url>
+    <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
+<p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
+<p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>CMD+ &lt;- 返回上一页<br>CMD+ -&gt; 下一页</p>
+<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 ]]></content>
       <categories>
         <category>IT</category>
@@ -390,7 +390,8 @@
 <li>从第一次建仓开始计算总持仓的收益满足年化15%的要求则卖出</li>
 <li>提前设置自动定投，每月定投完成后按上面策略计算好卖出价，设置自动全仓卖出</li>
 </ol>
-<h2 id="数据回测"><a href="#数据回测" class="headerlink" title="数据回测"></a>数据回测</h2><table>
+<h2 id="数据回测"><a href="#数据回测" class="headerlink" title="数据回测"></a>数据回测</h2><p>没有考虑手续费</p>
+<table>
 <thead>
 <tr>
 <th><strong>日期</strong></th>

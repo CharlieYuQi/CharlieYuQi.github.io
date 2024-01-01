@@ -225,13 +225,6 @@
   </url>
   
   <url>
-    <loc>http://yuqi.tk/tags/Hibernate/</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://yuqi.tk/tags/Netty/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -247,6 +240,13 @@
   
   <url>
     <loc>http://yuqi.tk/tags/OpenTSDB/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuqi.tk/tags/Hibernate/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

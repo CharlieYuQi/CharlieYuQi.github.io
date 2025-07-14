@@ -128,7 +128,7 @@
   </entry>
   <entry>
     <title>MAC 创建 /home 文件夹</title>
-    <url>/2018/03/23/MAC-create-home-md/</url>
+    <url>/2018/03/24/MAC-create-home-md/</url>
     <content><![CDATA[<p>直接操作home 文件夹报错:Operation not supported<br>解决办法：<br>执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/auto_master</span><br></pre></td></tr></table></figure>
 
@@ -234,7 +234,7 @@
   </entry>
   <entry>
     <title>mac-quick</title>
-    <url>/2017/09/22/mac-quick/</url>
+    <url>/2017/09/23/mac-quick/</url>
     <content><![CDATA[<h1 id="mac-快捷键记录"><a href="#mac-快捷键记录" class="headerlink" title="mac 快捷键记录"></a>mac 快捷键记录</h1><h2 id="文稿"><a href="#文稿" class="headerlink" title="文稿"></a>文稿</h2><p>在Mac OS X下执行shell命令时难免需要更改靠近行首的部分。<br>移动到开头（行首）：Ctrl + A<br>移动到结尾（行末）：Ctrl + E<br>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。<br>Control + b&#x2F;f&#x2F;n&#x2F;p ：左右上下移动光标。<br>Control + h&#x2F;d：删除光标左右两边的字符。键盘上的 delete 和 fn+delete 都可以完成这组操作，但手指移动距离过大，特别是 fn+delete，几乎是键盘上对角线最远的距离。</p>
 <p>Control + a&#x2F;e，光标移动到行首行尾。<br>Control + n&#x2F;p，在许多的应用中，支持上下移动列表选项</p>
 <p>￼￼<span id="more"></span><br><img src="http://ww1.sinaimg.cn/large/e5aac86bgy1fjsqmsnw5dj214a0imjtg.jpg"></p>
@@ -289,7 +289,7 @@
   </entry>
   <entry>
     <title>MapStruct Introduction</title>
-    <url>/2023/12/03/mapstruct/</url>
+    <url>/2023/12/04/mapstruct/</url>
     <content><![CDATA[<p>&emsp; &emsp; MapStruct是一种类型安全的bean映射类生成java注释处理器。<br>&emsp; &emsp; 我们要做的就是定义一个映射器接口，声明任何必需的映射方法。在编译的过程中，MapStruct会生成此接口的实现。该实现使用纯java方法调用的源和目标对象之间的映射，MapStruct节省了时间，通过生成代码完成繁琐和容易出错的代码逻辑。</p>
 <p><a href="http://mapstruct.org/">官网地址</a><br><a href="https://mapstruct.org/documentation/stable/reference/html/">Reference Guide</a><br>￼￼<span id="more"></span></p>
 <p>MapStruct works together with Project Lombok as of MapStruct 1.2.0.Beta1 and Lombok 1.16.14.</p>
@@ -309,7 +309,7 @@
   </entry>
   <entry>
     <title>事件驱动投资的九大建议</title>
-    <url>/2023/12/06/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/</url>
+    <url>/2023/12/07/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="/../images/event1.jpg" alt="Alt text"><br><img src="/../images/event2.jpg" alt="Alt text"></p>
 ]]></content>
       <categories>
@@ -321,7 +321,7 @@
   </entry>
   <entry>
     <title>可转债投资</title>
-    <url>/2023/12/23/%E5%8F%AF%E8%BD%AC%E5%80%BA/</url>
+    <url>/2023/12/24/%E5%8F%AF%E8%BD%AC%E5%80%BA/</url>
     <content><![CDATA[<h2 id="可转债筛选及置换原则"><a href="#可转债筛选及置换原则" class="headerlink" title="可转债筛选及置换原则"></a>可转债筛选及置换原则</h2><p><img src="/../images/kezhuanzhai.PNG" alt="Alt text"></p>
 <h2 id="建仓策略"><a href="#建仓策略" class="headerlink" title="建仓策略"></a>建仓策略</h2><ol>
 <li>筛选满足条件的按PB降序的前10支可转债</li>
@@ -351,7 +351,7 @@
   </entry>
   <entry>
     <title>基金定投</title>
-    <url>/2023/12/30/%E5%9F%BA%E9%87%91%E5%AE%9A%E6%8A%95/</url>
+    <url>/2023/12/31/%E5%9F%BA%E9%87%91%E5%AE%9A%E6%8A%95/</url>
     <content><![CDATA[<h1 id="投资标的"><a href="#投资标的" class="headerlink" title="投资标的"></a>投资标的</h1><p>只定投指数基金</p>
 <table>
 <thead>
@@ -609,6 +609,18 @@
       </categories>
       <tags>
         <tag>Investment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2025-07-14 交易日志</title>
+    <url>/2025/07/14/2025-07-14-%E4%BA%A4%E6%98%93%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Trade</category>
+      </categories>
+      <tags>
+        <tag>Trade</tag>
+        <tag>交易日志</tag>
       </tags>
   </entry>
 </search>
